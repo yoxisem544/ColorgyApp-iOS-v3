@@ -1,0 +1,574 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4CD01329D52403D59231EEFB /* libPods-ColorgyAPIHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E81569A68EE476E9E0D20C9 /* libPods-ColorgyAPIHandler.a */; };
+		631182811B8856D1008AE34E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631182801B8856D1008AE34E /* AppDelegate.swift */; };
+		631182831B8856D1008AE34E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631182821B8856D1008AE34E /* ViewController.swift */; };
+		631182861B8856D1008AE34E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 631182841B8856D1008AE34E /* Main.storyboard */; };
+		631182881B8856D1008AE34E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 631182871B8856D1008AE34E /* Images.xcassets */; };
+		6311828B1B8856D1008AE34E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 631182891B8856D1008AE34E /* LaunchScreen.xib */; };
+		631182971B8856D1008AE34E /* ColorgyAPIHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631182961B8856D1008AE34E /* ColorgyAPIHandlerTests.swift */; };
+		631182A11B885804008AE34E /* ColorgyUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631182A01B885804008AE34E /* ColorgyUser.swift */; };
+		631182A31B885B6F008AE34E /* ColorgyAPIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631182A21B885B6F008AE34E /* ColorgyAPIHelpers.swift */; };
+		631182A51B885D5F008AE34E /* CourseDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631182A41B885D5F008AE34E /* CourseDataBase.swift */; };
+		631182A71B885E2F008AE34E /* ColorgyLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631182A61B885E2F008AE34E /* ColorgyLogin.swift */; };
+		631182AA1B886131008AE34E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631182A91B886131008AE34E /* FBSDKCoreKit.framework */; };
+		631182AC1B886300008AE34E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631182AB1B886300008AE34E /* FBSDKLoginKit.framework */; };
+		631182AE1B886BD1008AE34E /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631182AD1B886BD1008AE34E /* SwiftyJSON.swift */; };
+		631182B01B88739C008AE34E /* ColorgyLoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631182AF1B88739C008AE34E /* ColorgyLoginResult.swift */; };
+		631182B21B887673008AE34E /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631182B11B887673008AE34E /* UserSettings.swift */; };
+		6311C3F01B8889F400F88BC9 /* ColorgyAPIResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6311C3EF1B8889F400F88BC9 /* ColorgyAPIResults.swift */; };
+		6311C3F21B88AF0D00F88BC9 /* ColorgyErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6311C3F11B88AF0D00F88BC9 /* ColorgyErrorType.swift */; };
+		6311C3F41B88B8BE00F88BC9 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6311C3F31B88B8BE00F88BC9 /* Course.swift */; };
+		6311C3F81B88C12300F88BC9 /* CourseInDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6311C3F71B88C12300F88BC9 /* CourseInDB.swift */; };
+		6311C3FD1B88CE3700F88BC9 /* ColorgyAPIHandlerooo.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 6311C3FC1B88CE3700F88BC9 /* ColorgyAPIHandlerooo.xcdatamodel */; };
+		6311C4311B88DD3B00F88BC9 /* ColorgyAPIHandler.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6311C42F1B88DD3B00F88BC9 /* ColorgyAPIHandler.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		631182911B8856D1008AE34E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 631182731B8856D1008AE34E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6311827A1B8856D1008AE34E;
+			remoteInfo = ColorgyAPIHandler;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3E81569A68EE476E9E0D20C9 /* libPods-ColorgyAPIHandler.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ColorgyAPIHandler.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AD661BF72DFC25D9CB76552 /* Pods-ColorgyAPIHandler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColorgyAPIHandler.release.xcconfig"; path = "Pods/Target Support Files/Pods-ColorgyAPIHandler/Pods-ColorgyAPIHandler.release.xcconfig"; sourceTree = "<group>"; };
+		6311827B1B8856D1008AE34E /* ColorgyAPIHandler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorgyAPIHandler.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6311827F1B8856D1008AE34E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		631182801B8856D1008AE34E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		631182821B8856D1008AE34E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		631182851B8856D1008AE34E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		631182871B8856D1008AE34E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6311828A1B8856D1008AE34E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		631182901B8856D1008AE34E /* ColorgyAPIHandlerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorgyAPIHandlerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		631182951B8856D1008AE34E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		631182961B8856D1008AE34E /* ColorgyAPIHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorgyAPIHandlerTests.swift; sourceTree = "<group>"; };
+		631182A01B885804008AE34E /* ColorgyUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorgyUser.swift; sourceTree = "<group>"; };
+		631182A21B885B6F008AE34E /* ColorgyAPIHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorgyAPIHelpers.swift; sourceTree = "<group>"; };
+		631182A41B885D5F008AE34E /* CourseDataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDataBase.swift; sourceTree = "<group>"; };
+		631182A61B885E2F008AE34E /* ColorgyLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorgyLogin.swift; sourceTree = "<group>"; };
+		631182A81B8860AF008AE34E /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		631182A91B886131008AE34E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		631182AB1B886300008AE34E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		631182AD1B886BD1008AE34E /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		631182AF1B88739C008AE34E /* ColorgyLoginResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorgyLoginResult.swift; sourceTree = "<group>"; };
+		631182B11B887673008AE34E /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		6311C3EF1B8889F400F88BC9 /* ColorgyAPIResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorgyAPIResults.swift; sourceTree = "<group>"; };
+		6311C3F11B88AF0D00F88BC9 /* ColorgyErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorgyErrorType.swift; sourceTree = "<group>"; };
+		6311C3F31B88B8BE00F88BC9 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		6311C3F71B88C12300F88BC9 /* CourseInDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseInDB.swift; sourceTree = "<group>"; };
+		6311C3FC1B88CE3700F88BC9 /* ColorgyAPIHandlerooo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ColorgyAPIHandlerooo.xcdatamodel; sourceTree = "<group>"; };
+		6311C4301B88DD3B00F88BC9 /* ColorgyAPIHandler.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ColorgyAPIHandler.xcdatamodel; sourceTree = "<group>"; };
+		7F2BA84BAA603EC1462E5293 /* Pods-ColorgyAPIHandler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColorgyAPIHandler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ColorgyAPIHandler/Pods-ColorgyAPIHandler.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		631182781B8856D1008AE34E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				631182AC1B886300008AE34E /* FBSDKLoginKit.framework in Frameworks */,
+				631182AA1B886131008AE34E /* FBSDKCoreKit.framework in Frameworks */,
+				4CD01329D52403D59231EEFB /* libPods-ColorgyAPIHandler.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6311828D1B8856D1008AE34E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		631182721B8856D1008AE34E = {
+			isa = PBXGroup;
+			children = (
+				631182A81B8860AF008AE34E /* Header.h */,
+				6311827D1B8856D1008AE34E /* ColorgyAPIHandler */,
+				631182931B8856D1008AE34E /* ColorgyAPIHandlerTests */,
+				6311827C1B8856D1008AE34E /* Products */,
+				7CDA75CC1B18C320E69E9CF5 /* Pods */,
+				6C6C88995A268B7397DFDDA1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6311827C1B8856D1008AE34E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6311827B1B8856D1008AE34E /* ColorgyAPIHandler.app */,
+				631182901B8856D1008AE34E /* ColorgyAPIHandlerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6311827D1B8856D1008AE34E /* ColorgyAPIHandler */ = {
+			isa = PBXGroup;
+			children = (
+				631182801B8856D1008AE34E /* AppDelegate.swift */,
+				631182821B8856D1008AE34E /* ViewController.swift */,
+				631182841B8856D1008AE34E /* Main.storyboard */,
+				631182A01B885804008AE34E /* ColorgyUser.swift */,
+				631182B11B887673008AE34E /* UserSettings.swift */,
+				631182A21B885B6F008AE34E /* ColorgyAPIHelpers.swift */,
+				6311C3F31B88B8BE00F88BC9 /* Course.swift */,
+				6311C3F11B88AF0D00F88BC9 /* ColorgyErrorType.swift */,
+				6311C3EF1B8889F400F88BC9 /* ColorgyAPIResults.swift */,
+				6311C3FC1B88CE3700F88BC9 /* ColorgyAPIHandlerooo.xcdatamodel */,
+				6311C42F1B88DD3B00F88BC9 /* ColorgyAPIHandler.xcdatamodeld */,
+				631182A41B885D5F008AE34E /* CourseDataBase.swift */,
+				6311C3F71B88C12300F88BC9 /* CourseInDB.swift */,
+				631182A61B885E2F008AE34E /* ColorgyLogin.swift */,
+				631182AF1B88739C008AE34E /* ColorgyLoginResult.swift */,
+				631182871B8856D1008AE34E /* Images.xcassets */,
+				631182891B8856D1008AE34E /* LaunchScreen.xib */,
+				631182AB1B886300008AE34E /* FBSDKLoginKit.framework */,
+				631182A91B886131008AE34E /* FBSDKCoreKit.framework */,
+				6311827E1B8856D1008AE34E /* Supporting Files */,
+			);
+			path = ColorgyAPIHandler;
+			sourceTree = "<group>";
+		};
+		6311827E1B8856D1008AE34E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				631182AD1B886BD1008AE34E /* SwiftyJSON.swift */,
+				6311827F1B8856D1008AE34E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		631182931B8856D1008AE34E /* ColorgyAPIHandlerTests */ = {
+			isa = PBXGroup;
+			children = (
+				631182961B8856D1008AE34E /* ColorgyAPIHandlerTests.swift */,
+				631182941B8856D1008AE34E /* Supporting Files */,
+			);
+			path = ColorgyAPIHandlerTests;
+			sourceTree = "<group>";
+		};
+		631182941B8856D1008AE34E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				631182951B8856D1008AE34E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6C6C88995A268B7397DFDDA1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3E81569A68EE476E9E0D20C9 /* libPods-ColorgyAPIHandler.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7CDA75CC1B18C320E69E9CF5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7F2BA84BAA603EC1462E5293 /* Pods-ColorgyAPIHandler.debug.xcconfig */,
+				4AD661BF72DFC25D9CB76552 /* Pods-ColorgyAPIHandler.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6311827A1B8856D1008AE34E /* ColorgyAPIHandler */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6311829A1B8856D1008AE34E /* Build configuration list for PBXNativeTarget "ColorgyAPIHandler" */;
+			buildPhases = (
+				B0AF6E0BB85ED91627C122F3 /* Check Pods Manifest.lock */,
+				631182771B8856D1008AE34E /* Sources */,
+				631182781B8856D1008AE34E /* Frameworks */,
+				631182791B8856D1008AE34E /* Resources */,
+				D16C77E29EDD2861ABE341CF /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ColorgyAPIHandler;
+			productName = ColorgyAPIHandler;
+			productReference = 6311827B1B8856D1008AE34E /* ColorgyAPIHandler.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6311828F1B8856D1008AE34E /* ColorgyAPIHandlerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6311829D1B8856D1008AE34E /* Build configuration list for PBXNativeTarget "ColorgyAPIHandlerTests" */;
+			buildPhases = (
+				6311828C1B8856D1008AE34E /* Sources */,
+				6311828D1B8856D1008AE34E /* Frameworks */,
+				6311828E1B8856D1008AE34E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				631182921B8856D1008AE34E /* PBXTargetDependency */,
+			);
+			name = ColorgyAPIHandlerTests;
+			productName = ColorgyAPIHandlerTests;
+			productReference = 631182901B8856D1008AE34E /* ColorgyAPIHandlerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		631182731B8856D1008AE34E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = David;
+				TargetAttributes = {
+					6311827A1B8856D1008AE34E = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					6311828F1B8856D1008AE34E = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 6311827A1B8856D1008AE34E;
+					};
+				};
+			};
+			buildConfigurationList = 631182761B8856D1008AE34E /* Build configuration list for PBXProject "ColorgyAPIHandler" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 631182721B8856D1008AE34E;
+			productRefGroup = 6311827C1B8856D1008AE34E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6311827A1B8856D1008AE34E /* ColorgyAPIHandler */,
+				6311828F1B8856D1008AE34E /* ColorgyAPIHandlerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		631182791B8856D1008AE34E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				631182861B8856D1008AE34E /* Main.storyboard in Resources */,
+				6311828B1B8856D1008AE34E /* LaunchScreen.xib in Resources */,
+				631182881B8856D1008AE34E /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6311828E1B8856D1008AE34E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B0AF6E0BB85ED91627C122F3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D16C77E29EDD2861ABE341CF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ColorgyAPIHandler/Pods-ColorgyAPIHandler-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		631182771B8856D1008AE34E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				631182831B8856D1008AE34E /* ViewController.swift in Sources */,
+				6311C3FD1B88CE3700F88BC9 /* ColorgyAPIHandlerooo.xcdatamodel in Sources */,
+				6311C3F41B88B8BE00F88BC9 /* Course.swift in Sources */,
+				631182A51B885D5F008AE34E /* CourseDataBase.swift in Sources */,
+				631182B21B887673008AE34E /* UserSettings.swift in Sources */,
+				631182B01B88739C008AE34E /* ColorgyLoginResult.swift in Sources */,
+				631182A31B885B6F008AE34E /* ColorgyAPIHelpers.swift in Sources */,
+				631182A11B885804008AE34E /* ColorgyUser.swift in Sources */,
+				6311C4311B88DD3B00F88BC9 /* ColorgyAPIHandler.xcdatamodeld in Sources */,
+				631182811B8856D1008AE34E /* AppDelegate.swift in Sources */,
+				631182AE1B886BD1008AE34E /* SwiftyJSON.swift in Sources */,
+				631182A71B885E2F008AE34E /* ColorgyLogin.swift in Sources */,
+				6311C3F01B8889F400F88BC9 /* ColorgyAPIResults.swift in Sources */,
+				6311C3F81B88C12300F88BC9 /* CourseInDB.swift in Sources */,
+				6311C3F21B88AF0D00F88BC9 /* ColorgyErrorType.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6311828C1B8856D1008AE34E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				631182971B8856D1008AE34E /* ColorgyAPIHandlerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		631182921B8856D1008AE34E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6311827A1B8856D1008AE34E /* ColorgyAPIHandler */;
+			targetProxy = 631182911B8856D1008AE34E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		631182841B8856D1008AE34E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				631182851B8856D1008AE34E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		631182891B8856D1008AE34E /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6311828A1B8856D1008AE34E /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		631182981B8856D1008AE34E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		631182991B8856D1008AE34E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6311829B1B8856D1008AE34E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F2BA84BAA603EC1462E5293 /* Pods-ColorgyAPIHandler.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ColorgyAPIHandler",
+				);
+				INFOPLIST_FILE = ColorgyAPIHandler/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = ./Header.h;
+			};
+			name = Debug;
+		};
+		6311829C1B8856D1008AE34E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AD661BF72DFC25D9CB76552 /* Pods-ColorgyAPIHandler.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ColorgyAPIHandler",
+				);
+				INFOPLIST_FILE = ColorgyAPIHandler/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = ./Header.h;
+			};
+			name = Release;
+		};
+		6311829E1B8856D1008AE34E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ColorgyAPIHandlerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ColorgyAPIHandler.app/ColorgyAPIHandler";
+			};
+			name = Debug;
+		};
+		6311829F1B8856D1008AE34E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ColorgyAPIHandlerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ColorgyAPIHandler.app/ColorgyAPIHandler";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		631182761B8856D1008AE34E /* Build configuration list for PBXProject "ColorgyAPIHandler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				631182981B8856D1008AE34E /* Debug */,
+				631182991B8856D1008AE34E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6311829A1B8856D1008AE34E /* Build configuration list for PBXNativeTarget "ColorgyAPIHandler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6311829B1B8856D1008AE34E /* Debug */,
+				6311829C1B8856D1008AE34E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6311829D1B8856D1008AE34E /* Build configuration list for PBXNativeTarget "ColorgyAPIHandlerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6311829E1B8856D1008AE34E /* Debug */,
+				6311829F1B8856D1008AE34E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6311C42F1B88DD3B00F88BC9 /* ColorgyAPIHandler.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6311C4301B88DD3B00F88BC9 /* ColorgyAPIHandler.xcdatamodel */,
+			);
+			currentVersion = 6311C4301B88DD3B00F88BC9 /* ColorgyAPIHandler.xcdatamodel */;
+			path = ColorgyAPIHandler.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 631182731B8856D1008AE34E /* Project object */;
+}

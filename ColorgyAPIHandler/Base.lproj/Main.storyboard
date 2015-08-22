@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ColorgyAPIHandler" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="@access token" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KNF-E2-L1F">
+                                <rect key="frame" x="16" y="20" width="464" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2q1-vm-2bu">
+                                <rect key="frame" x="488" y="20" width="96" height="30"/>
+                                <state key="normal" title="Update Token">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="updateAccesstokenClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jF2-37-MDP"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="fb token" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JsV-65-sGF">
+                                <rect key="frame" x="16" y="58" width="498" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYM-bH-ZQX">
+                                <rect key="frame" x="522" y="58" width="62" height="30"/>
+                                <state key="normal" title="Login FB">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="LoginToFacebook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rvf-c7-cY0"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After you get fb access token you can login into colorgy below😁" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZjG-ua-nTi">
+                                <rect key="frame" x="16" y="96" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="access token will show after you login." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gNz-9t-T6v">
+                                <rect key="frame" x="16" y="125" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVk-XS-zUh">
+                                <rect key="frame" x="16" y="163" width="84" height="30"/>
+                                <state key="normal" title="GET me API">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="GetMeAPI:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EwO-fd-jhe"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="get user courses, pass in user id" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lUT-mo-kFD">
+                                <rect key="frame" x="16" y="201" width="445" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DG1-Rn-aP4">
+                                <rect key="frame" x="469" y="201" width="115" height="30"/>
+                                <state key="normal" title="get user courses">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getusercourses:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zBj-gr-u6T"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DG1-Rn-aP4" firstAttribute="top" secondItem="cVk-XS-zUh" secondAttribute="bottom" constant="8" id="1bi-bI-Ggx"/>
+                            <constraint firstItem="ZjG-ua-nTi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="8Ak-Gt-EM5"/>
+                            <constraint firstItem="2q1-vm-2bu" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="APB-N9-OFy"/>
+                            <constraint firstItem="gNz-9t-T6v" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="JtX-Ol-rOg"/>
+                            <constraint firstItem="lUT-mo-kFD" firstAttribute="top" secondItem="cVk-XS-zUh" secondAttribute="bottom" constant="8" id="LzQ-tv-LWc"/>
+                            <constraint firstItem="cVk-XS-zUh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="MgA-4H-igZ"/>
+                            <constraint firstItem="lUT-mo-kFD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="OPD-g2-lvl"/>
+                            <constraint firstItem="cVk-XS-zUh" firstAttribute="top" secondItem="gNz-9t-T6v" secondAttribute="bottom" constant="8" id="SJr-OL-7tW"/>
+                            <constraint firstItem="KNF-E2-L1F" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="VrK-Ud-EzM"/>
+                            <constraint firstItem="ZjG-ua-nTi" firstAttribute="top" secondItem="JsV-65-sGF" secondAttribute="bottom" constant="8" id="WHv-ZL-kql"/>
+                            <constraint firstItem="JsV-65-sGF" firstAttribute="top" secondItem="KNF-E2-L1F" secondAttribute="bottom" constant="8" id="a0o-oY-kfD"/>
+                            <constraint firstItem="2q1-vm-2bu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="aP9-7L-WBi"/>
+                            <constraint firstItem="JsV-65-sGF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="b6q-2y-RDe"/>
+                            <constraint firstItem="SYM-bH-ZQX" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="cZF-GK-fud"/>
+                            <constraint firstItem="2q1-vm-2bu" firstAttribute="leading" secondItem="KNF-E2-L1F" secondAttribute="trailing" constant="8" id="hQ0-6A-wFJ"/>
+                            <constraint firstItem="ZjG-ua-nTi" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="kmV-YV-Pxc"/>
+                            <constraint firstItem="SYM-bH-ZQX" firstAttribute="leading" secondItem="JsV-65-sGF" secondAttribute="trailing" constant="8" id="lYj-Ud-aBg"/>
+                            <constraint firstItem="gNz-9t-T6v" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="lcT-ql-2ni"/>
+                            <constraint firstItem="SYM-bH-ZQX" firstAttribute="top" secondItem="2q1-vm-2bu" secondAttribute="bottom" constant="8" id="oGl-d7-b6C"/>
+                            <constraint firstItem="gNz-9t-T6v" firstAttribute="top" secondItem="ZjG-ua-nTi" secondAttribute="bottom" constant="8" id="oY7-GU-Eew"/>
+                            <constraint firstItem="DG1-Rn-aP4" firstAttribute="leading" secondItem="lUT-mo-kFD" secondAttribute="trailing" constant="8" id="rBa-9u-SXJ"/>
+                            <constraint firstItem="KNF-E2-L1F" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="rcX-GI-OOt"/>
+                            <constraint firstItem="DG1-Rn-aP4" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="sdh-eW-U4H"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="accesstokenTextField" destination="KNF-E2-L1F" id="5uP-cI-5RD"/>
+                        <outlet property="colorgyAccessTokenTextField" destination="gNz-9t-T6v" id="BoZ-aX-q75"/>
+                        <outlet property="fbAccessTokenTextField" destination="JsV-65-sGF" id="n3W-ut-Qjd"/>
+                        <outlet property="getuseridtextfield" destination="lUT-mo-kFD" id="3un-lq-8l9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
