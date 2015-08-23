@@ -8,7 +8,14 @@
 
 import Foundation
 
-class CourseRawData: Printable {
+/// This is a course raw data representation of a parsed json.
+///
+/// Pass in a json, then it will generate a CourseRawDataObject.
+///
+/// This object make it easier to deal with json formate data.
+///
+/// This json is from school API, not user API.
+class CourseRawDataObject: Printable {
     
     // 1. properties
     // cache data from server
@@ -99,6 +106,10 @@ class CourseRawData: Printable {
     }
     
     // 2. init
+    /// Initialization of CourseRawDataObject.
+    /// You need to pass in a json, then will return a CourseRawDataObject?
+    /// 
+    /// :param: json: a json from server. This json is from **school API**, not user API.
     init?(json: JSON?) {
         self.name = ""
         self.uuid = ""
@@ -233,6 +244,9 @@ class CourseRawData: Printable {
         }
     }
     // 3. methods.
+    /// This method can get the counts of days, periods and locations array's length.
+    ///
+    /// :returns: Count of days, periods and locations array.
     func sessionLength() -> Int {
         if self.day_1 == nil {
             return 0

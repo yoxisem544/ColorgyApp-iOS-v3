@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct APIResult {
+private struct APIResult {
      struct Me {
         // all result key of me api is here
         static let id = "id"
@@ -25,6 +25,7 @@ struct APIResult {
     }
 }
 
+/// You can easily use this to handle with result from Me API.
 class ColorgyAPIMeResult {
     var id: Int
     var uuid: String

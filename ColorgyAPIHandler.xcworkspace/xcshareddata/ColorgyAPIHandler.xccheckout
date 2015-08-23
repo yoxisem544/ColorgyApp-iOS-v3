@@ -10,14 +10,14 @@
 	<string>ColorgyAPIHandler</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>6BD34ADCE4CDA97B8D2181AB4F1FD06045701C97</key>
+		<key>FECAD37E1225DAC3905F6703204C0AA2259839C8</key>
 		<string>https://github.com/yoxisem544/ColorgyApp-iOS-v3.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>ColorgyAPIHandler.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>6BD34ADCE4CDA97B8D2181AB4F1FD06045701C97</key>
+		<key>FECAD37E1225DAC3905F6703204C0AA2259839C8</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>6BD34ADCE4CDA97B8D2181AB4F1FD06045701C97</string>
+	<string>FECAD37E1225DAC3905F6703204C0AA2259839C8</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>6BD34ADCE4CDA97B8D2181AB4F1FD06045701C97</string>
+			<string>FECAD37E1225DAC3905F6703204C0AA2259839C8</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ColorgyAPIHandler</string>
 		</dict>

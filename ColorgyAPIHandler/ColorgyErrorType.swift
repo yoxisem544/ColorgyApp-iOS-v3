@@ -10,6 +10,7 @@ import Foundation
 
 struct ColorgyErrorType {
     static let noSuchUser = "no user"
+    static let noOrganization = "user has no possible organization, need to have one"
     static let noAccessToken = "no access token"
     static let failToLoginColorgy = "fail to login into colorgy"
     static let canceledFBLogin = "user cancel fb login"
@@ -17,6 +18,7 @@ struct ColorgyErrorType {
     // API failure
     struct APIFailure {
         static let failGetUserCourses = "fail to get specific user's courses"
+        static let failDownloadCourses = "fail to download whole courses"
     }
     struct DBFailure {
         static let deleteFail = "user fail to delete courses in db"

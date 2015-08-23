@@ -12,6 +12,7 @@ import CoreData
 class CourseDB {
     
     // delete all
+    /// This method will delete all courses stored in data base.
     class func deleteAllCourses() {
         if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
             let fetchRequest = NSFetchRequest(entityName: "Course")
@@ -32,6 +33,9 @@ class CourseDB {
         }
     }
     // delete specific course using code: String
+    /// You can delete a course with a specific course code.
+    ///
+    /// :param: code: a specific course code
     class func deleteCourseWithCourseCode(code: String) {
         if let courseObjects = CourseDB.getAllStoredCoursesObject() {
             for courseObject in courseObjects {
@@ -51,6 +55,10 @@ class CourseDB {
     // store course with a object??? maybe call this a courseRawData
     
     // get out all courses
+    /// You can get all courses stored in data base.
+    /// @link hello
+    ///
+    /// :returns: [CourseDBManagedObject]?
     class func getAllStoredCoursesObject() -> [CourseDBManagedObject]? {
         // TODO: we dont want to take care of dirty things, so i think i need to have a course class to handle this.
         if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {

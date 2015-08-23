@@ -8,26 +8,33 @@
 
 import Foundation
 
+/// This will help you to deal with whole bunch of json that is download from server.
 class CourseRawDataArray {
     
-    var courseRawDataArray: [CourseRawData]?
+    /// An array that contains parsed CourseRawDataObject that you can easily use with.
+    ///
+    /// check the count of this objects, might be zero or nil
+    var objects: [CourseRawDataObject]?
     
+    /// Initialization: Create a Array that contains CourseRawDataObjects.
+    ///
+    /// You can get it from accessing this array's property: objects
     init(json: JSON?) {
         if let json = json {
             // init raw data array
-            self.courseRawDataArray = [CourseRawData]()
+            self.objects = [CourseRawDataObject]()
             if json.isArray {
                 // an array of object
                 for (index: String, json: JSON) in json {
                     // loop through all the array
-                    if let courseRawData = CourseRawData(json: json) {
-                        self.courseRawDataArray?.append(courseRawData)
+                    if let courseRawData = CourseRawDataObject(json: json) {
+                        self.objects?.append(courseRawData)
                     }
                 }
             } else {
                 // only one object
-                if let courseRawData = CourseRawData(json: json) {
-                    self.courseRawDataArray?.append(courseRawData)
+                if let courseRawData = CourseRawDataObject(json: json) {
+                    self.objects?.append(courseRawData)
                 }
             }
         }

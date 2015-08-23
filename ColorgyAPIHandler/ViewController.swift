@@ -18,10 +18,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var fbAccessTokenTextField: UITextField!
     @IBAction func LoginToFacebook(sender: UIButton) {
         var login = ColorgyLogin()
-        login.loginToFacebook { (token) -> Void in
+        ColorgyLogin.loginToFacebook { (token) -> Void in
             if let token = token {
                 self.fbAccessTokenTextField.text = token
-                login.loginToColorgyWithToken(token, handler: { (response, error) -> Void in
+                ColorgyLogin.loginToColorgyWithToken(token, handler: { (response, error) -> Void in
                     if error != nil {
                         println("something wrong")
                     } else {
@@ -80,6 +80,19 @@ class ViewController: UIViewController {
             println(json)
         }
     }
+    @IBAction func downloadcoursescli(sender: AnyObject) {
+        if let counts = self.coursecounttextfield.text.toInt() {
+            ColorgyAPI.getSchoolCourseData(counts, completionHandler: { (courseRawDataObjects) -> Void in
+                if let rawdataobjects = courseRawDataObjects {
+                    for o in rawdataobjects {
+                        println(o)
+                    }
+                }
+            })
+        }
+        
+    }
+    @IBOutlet weak var coursecounttextfield: UITextField!
     let user = ColorgyUser()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,6 +102,7 @@ class ViewController: UIViewController {
 //        CourseDB.storeFakeData()
 //        CourseDB.getAllStoredCoursesObject()
 //        CourseDB.deleteCourseWithCourseCode("1041-AC5007701")
+        var a = UserCourseObject(json: nil)
     }
 
     override func didReceiveMemoryWarning() {

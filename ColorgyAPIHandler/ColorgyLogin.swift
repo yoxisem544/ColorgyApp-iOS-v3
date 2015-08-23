@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Contain all things colorgy login stuff.
 class ColorgyLogin {
     
     struct Type {
@@ -15,11 +16,10 @@ class ColorgyLogin {
         static let email = "email"
     }
     
-    init() {
-        
-    }
-    
-    func loginToFacebook(handler: (token: String?) -> Void) {
+    /// Login to Facebook, with a completion handler will return a **access token** from Facebook.
+    ///
+    /// :returns: token: A access token from Facebook.
+    class func loginToFacebook(handler: (token: String?) -> Void) {
         let login = FBSDKLoginManager()
         let permissions = ["email"]
         login.logInWithReadPermissions(permissions, handler: { (result, error) -> Void in
@@ -38,11 +38,12 @@ class ColorgyLogin {
         })
     }
     
-    // need a login using email
-    // do something
-    
-    // connect to colorgy
-    func loginToColorgyWithToken(token: String, handler: (response: ColorgyLoginResult?, error: AnyObject?) -> Void) {
+    // connect to colorgy with fb token
+    /// Login to Colorgy using Facebook's access token.
+    ///
+    /// :param: token: A Facebook access token.
+    /// :returns: response: A ColorgyLoginResult, simply store it using **UserSetting.storeLoginResult**
+    class func loginToColorgyWithToken(token: String, handler: (response: ColorgyLoginResult?, error: AnyObject?) -> Void) {
         // configure AFNetworking
         let afManager = AFHTTPSessionManager(baseURL: nil)
         afManager.requestSerializer = AFJSONRequestSerializer()
@@ -71,7 +72,8 @@ class ColorgyLogin {
         })
     }
     
-    
+    // TODO: need a login using email
+    // do something
     
 }
 

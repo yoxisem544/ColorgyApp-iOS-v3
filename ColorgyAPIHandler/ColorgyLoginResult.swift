@@ -18,6 +18,7 @@ struct OAuthKey {
     static let refresh_token = "refresh_token"
 }
 
+/// A result from Colorgy OAuth server.
 class ColorgyLoginResult {
     var created_at: Int?
     var scope: String?
@@ -26,6 +27,9 @@ class ColorgyLoginResult {
     var expires_in: Int?
     var refresh_token: String?
     
+    /// Initialization: Pass in json, then will generate a ColorgyLoginResult
+    ///
+    /// You can simply store this to **UserSetting.storeLoginResult**
     init(response: JSON?) {
         if let response = response {
             created_at = response[OAuthKey.created_at].int

@@ -88,24 +88,43 @@
                                     <action selector="getselfcourses:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j7C-lw-tbb"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="76A-tf-ckk">
+                                <rect key="frame" x="16" y="277" width="440" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jW-5G-1Lt">
+                                <rect key="frame" x="464" y="277" width="120" height="30"/>
+                                <state key="normal" title="Download course">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="downloadcoursescli:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Snj-ki-33z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="DG1-Rn-aP4" firstAttribute="top" secondItem="cVk-XS-zUh" secondAttribute="bottom" constant="8" id="1bi-bI-Ggx"/>
                             <constraint firstItem="ZjG-ua-nTi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="8Ak-Gt-EM5"/>
                             <constraint firstItem="2q1-vm-2bu" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="APB-N9-OFy"/>
+                            <constraint firstItem="3jW-5G-1Lt" firstAttribute="top" secondItem="prU-gw-yc0" secondAttribute="bottom" constant="8" id="DB0-SS-STg"/>
                             <constraint firstItem="gNz-9t-T6v" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="JtX-Ol-rOg"/>
                             <constraint firstItem="lUT-mo-kFD" firstAttribute="top" secondItem="cVk-XS-zUh" secondAttribute="bottom" constant="8" id="LzQ-tv-LWc"/>
                             <constraint firstItem="cVk-XS-zUh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="MgA-4H-igZ"/>
                             <constraint firstItem="prU-gw-yc0" firstAttribute="top" secondItem="lUT-mo-kFD" secondAttribute="bottom" constant="8" id="NXR-Ve-XST"/>
                             <constraint firstItem="lUT-mo-kFD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="OPD-g2-lvl"/>
                             <constraint firstItem="cVk-XS-zUh" firstAttribute="top" secondItem="gNz-9t-T6v" secondAttribute="bottom" constant="8" id="SJr-OL-7tW"/>
+                            <constraint firstItem="3jW-5G-1Lt" firstAttribute="leading" secondItem="76A-tf-ckk" secondAttribute="trailing" constant="8" id="SQ1-cP-c4P"/>
+                            <constraint firstItem="3jW-5G-1Lt" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="TfS-Wf-sMP"/>
                             <constraint firstItem="KNF-E2-L1F" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="VrK-Ud-EzM"/>
+                            <constraint firstItem="76A-tf-ckk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="W4Q-c0-bE4"/>
                             <constraint firstItem="ZjG-ua-nTi" firstAttribute="top" secondItem="JsV-65-sGF" secondAttribute="bottom" constant="8" id="WHv-ZL-kql"/>
                             <constraint firstItem="JsV-65-sGF" firstAttribute="top" secondItem="KNF-E2-L1F" secondAttribute="bottom" constant="8" id="a0o-oY-kfD"/>
                             <constraint firstItem="2q1-vm-2bu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="aP9-7L-WBi"/>
                             <constraint firstItem="JsV-65-sGF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="b6q-2y-RDe"/>
                             <constraint firstItem="SYM-bH-ZQX" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="cZF-GK-fud"/>
+                            <constraint firstItem="76A-tf-ckk" firstAttribute="top" secondItem="prU-gw-yc0" secondAttribute="bottom" constant="8" id="gZe-9y-xeL"/>
                             <constraint firstItem="2q1-vm-2bu" firstAttribute="leading" secondItem="KNF-E2-L1F" secondAttribute="trailing" constant="8" id="hQ0-6A-wFJ"/>
                             <constraint firstItem="prU-gw-yc0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="iJs-1h-U7a"/>
                             <constraint firstItem="ZjG-ua-nTi" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="kmV-YV-Pxc"/>
@@ -121,6 +140,7 @@
                     <connections>
                         <outlet property="accesstokenTextField" destination="KNF-E2-L1F" id="5uP-cI-5RD"/>
                         <outlet property="colorgyAccessTokenTextField" destination="gNz-9t-T6v" id="BoZ-aX-q75"/>
+                        <outlet property="coursecounttextfield" destination="76A-tf-ckk" id="4fb-eU-eBk"/>
                         <outlet property="fbAccessTokenTextField" destination="JsV-65-sGF" id="n3W-ut-Qjd"/>
                         <outlet property="getuseridtextfield" destination="lUT-mo-kFD" id="3un-lq-8l9"/>
                     </connections>

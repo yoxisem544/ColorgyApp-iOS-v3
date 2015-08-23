@@ -13,12 +13,47 @@ class ColorgyAPI {
     // what do i need here?
     // need to 
     
+    // download whole bunch of courses data
+    /// Get courses from server.
+    ///
+    /// :param: count: Pass the count you want to download. nil, 0, -1~ for all course.
+    /// :returns: courseRawDataObjects: A parsed [CourseRawDataObject]? array. Might be nil or 0 element.
+    class func getSchoolCourseData(count: Int?, completionHandler: (courseRawDataObjects: [CourseRawDataObject]?) -> Void) {
+        
+        let afManager = AFHTTPSessionManager(baseURL: nil)
+        afManager.requestSerializer = AFJSONRequestSerializer()
+        afManager.responseSerializer = AFJSONResponseSerializer()
+        
+        if let organization = UserSetting.UserPossibleOrganization() {
+            if let accesstoken = UserSetting.UserAccessToken() {
+                let coursesCount = count ?? 20000
+                let url = "https://colorgy.io:443/api/v1/" + organization.lowercaseString + "/courses.json?per_page=" + String(coursesCount)+"&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&access_token=" + accesstoken
+            
+                afManager.GET(url, parameters: nil, success: { (task: NSURLSessionDataTask, response: AnyObject) -> Void in
+                    let json = JSON(response)
+                    let courseRawDataArray = CourseRawDataArray(json: json)
+                    completionHandler(courseRawDataObjects: courseRawDataArray.objects)
+                    }, failure: { (task: NSURLSessionDataTask, error: NSError) -> Void in
+                        println(ColorgyErrorType.APIFailure.failDownloadCourses)
+                        completionHandler(courseRawDataObjects: nil)
+                })
+            }
+        } else {
+            completionHandler(courseRawDataObjects: nil)
+            println(ColorgyErrorType.noOrganization)
+        }
+    }
+    
     // course API
     // get course info
     // get course students
     
     // user API
     // get me
+    /// You can simply get Me API using this.
+    /// 
+    /// :returns: result: ColorgyAPIMeResult?, you can store it.
+    /// :returns: error: An error if you got one, then handle it.
     class func me(completionHandler: (result: ColorgyAPIMeResult?, error: AnyObject?) -> Void) {
         
         let afManager = AFHTTPSessionManager(baseURL: nil)
@@ -49,19 +84,27 @@ class ColorgyAPI {
     }
     
     // get me courses
-    class func getMeCourses(completionHanlder: (json: JSON?) -> Void) {
+    /// Get self courses from server.
+    ///
+    /// :returns: userCourseObjects: A [UserCourseObject]? array, might be nil or 0 element.
+    class func getMeCourses(completionHanlder: (userCourseObjects: [UserCourseObject]?) -> Void) {
         let ud = NSUserDefaults.standardUserDefaults()
         if let userId = UserSetting.UserId() {
             let userIdString = String(userId)
             ColorgyAPI.getUserCoursesWithId(userIdString, comletionHandler: completionHanlder)
         } else {
             println(ColorgyErrorType.noSuchUser)
-            completionHanlder(json: nil)
+            completionHanlder(userCourseObjects: nil)
         }
     }
     // get other's courses
-    // TODO: make a completion handler.
-    class func getUserCoursesWithId(userid: String, comletionHandler: (json: JSON?) -> Void) {
+    /// Get a specific courses from server.
+    ///
+    /// If userid is not a Int string, then server will just return [ ] empty array.
+    ///
+    /// :param: userid: A specific user id
+    /// :returns: userCourseObjects: A [UserCourseObject]? array, might be nil or 0 element.
+    class func getUserCoursesWithId(userid: String, comletionHandler: (userCourseObjects: [UserCourseObject]?) -> Void) {
         
         let afManager = AFHTTPSessionManager(baseURL: nil)
         afManager.requestSerializer = AFJSONRequestSerializer()
@@ -76,18 +119,19 @@ class ColorgyAPI {
                 afManager.GET(url, parameters: nil, success: { (task: NSURLSessionDataTask, response: AnyObject) -> Void in
                     // will return a array of courses
                     let json = JSON(response)
-                    comletionHandler(json: json)
+                    let userCourseObjects = UserCourseObjectArray(json: json).objects
+                    comletionHandler(userCourseObjects: userCourseObjects)
                     }, failure: { (task: NSURLSessionDataTask, error: NSError) -> Void in
                         println(ColorgyErrorType.APIFailure.failGetUserCourses)
-                        comletionHandler(json: nil)
+                        comletionHandler(userCourseObjects: nil)
                 })
             } else {
                 println(ColorgyErrorType.noAccessToken)
-                comletionHandler(json: nil)
+                comletionHandler(userCourseObjects: nil)
             }
         } else {
             println(ColorgyErrorType.noSuchUser)
-            comletionHandler(json: nil)
+            comletionHandler(userCourseObjects: nil)
         }
         
     }
@@ -105,9 +149,9 @@ class ColorgyAPI {
     // functions
     
     // keys
-    struct Method {
-        static let put = "PUT"
-        static let delete = "DELETE"
-    }
+//    struct Method {
+//        static let put = "PUT"
+//        static let delete = "DELETE"
+//    }
     
 }

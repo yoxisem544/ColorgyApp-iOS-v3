@@ -8,19 +8,35 @@
 
 import Foundation
 
+/// Course is a object that you can easily handle with the complex courses.
+///
+/// - Must use CourseRawData to create
+///
 class Course: Printable {
+    
+
     // properties
     // what do we need of a course?
+    /// Used to course code, every course has a unique code to access with.
     var code: String
+    /// Course's name
     var name: String
+    /// Course's year. Format: 2015, 1945, etc.
     var year: Int
+    /// Course's term. Format: 1 for first semester, 2 for second semester.
     var term: Int
+    /// Name of course's teacher, professor.
     var lecturer: String?
+    /// Credits of course
     var credits: Int?
+    /// _type of course, like "ntust_course"
     var _type: String?
     // how to configure location period ?
+    /// Weekdays of course. Its an array. Wont contain nil object.
     var days: [Int]?
+    /// Periods of course. Its an array. Wont contain nil object.
     var periods: [Int]?
+    /// Location of course. Its an array. Wont contain nil object.
     var locations: [String]?
     
     var description: String { return "{\n\tcode: \(code)\n\tname: \(name)\n\tyear: \(year)\n\tterm: \(term)\n\tlecturer: \(lecturer)\n\tcredits: \(credits)\n\t_type: \(_type)\n\tdays: \(days)\n\tperiods: \(periods)\n\tlocations: \(locations)\n}" }
@@ -60,7 +76,13 @@ class Course: Printable {
         }
     }
     
-    convenience init?(rawData: CourseRawData?) {
+    /// create Course using CourseRawDataObject
+    /// if CourseRawDataObject is something wrong, then this will not be created, and return nil
+    ///
+    /// :param: rawData: pass in a CourseRawDataObject
+    ///
+    /// :returns: Course
+    convenience init?(rawData: CourseRawDataObject?) {
         // what do we need of a course?
         var code: String? = nil
         var name: String? = nil

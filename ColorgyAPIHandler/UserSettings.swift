@@ -44,6 +44,22 @@ class UserSetting {
         return nil
     }
     
+    class func UserPossibleOrganization() -> String? {
+        let ud = NSUserDefaults.standardUserDefaults()
+        if let userPossibleOrganization = ud.objectForKey(UserSettingKey.userPossibleOrganization) as? String {
+            return userPossibleOrganization
+        }
+        return nil
+    }
+    
+    class func UserAccessToken() -> String? {
+        let ud = NSUserDefaults.standardUserDefaults()
+        if let userAccessToken = ud.objectForKey(UserSettingKey.userAccessToken) as? String {
+            return userAccessToken
+        }
+        return nil
+    }
+    
     // store at first time login
     class func storeLoginResult(#result: ColorgyLoginResult) {
         let ud = NSUserDefaults.standardUserDefaults()
