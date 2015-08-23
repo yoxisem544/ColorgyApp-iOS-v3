@@ -79,6 +79,15 @@
                                     <action selector="getusercourses:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zBj-gr-u6T"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="prU-gw-yc0">
+                                <rect key="frame" x="16" y="239" width="109" height="30"/>
+                                <state key="normal" title="Get Self Course">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getselfcourses:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j7C-lw-tbb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -88,6 +97,7 @@
                             <constraint firstItem="gNz-9t-T6v" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="JtX-Ol-rOg"/>
                             <constraint firstItem="lUT-mo-kFD" firstAttribute="top" secondItem="cVk-XS-zUh" secondAttribute="bottom" constant="8" id="LzQ-tv-LWc"/>
                             <constraint firstItem="cVk-XS-zUh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="MgA-4H-igZ"/>
+                            <constraint firstItem="prU-gw-yc0" firstAttribute="top" secondItem="lUT-mo-kFD" secondAttribute="bottom" constant="8" id="NXR-Ve-XST"/>
                             <constraint firstItem="lUT-mo-kFD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="OPD-g2-lvl"/>
                             <constraint firstItem="cVk-XS-zUh" firstAttribute="top" secondItem="gNz-9t-T6v" secondAttribute="bottom" constant="8" id="SJr-OL-7tW"/>
                             <constraint firstItem="KNF-E2-L1F" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="VrK-Ud-EzM"/>
@@ -97,6 +107,7 @@
                             <constraint firstItem="JsV-65-sGF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="b6q-2y-RDe"/>
                             <constraint firstItem="SYM-bH-ZQX" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="cZF-GK-fud"/>
                             <constraint firstItem="2q1-vm-2bu" firstAttribute="leading" secondItem="KNF-E2-L1F" secondAttribute="trailing" constant="8" id="hQ0-6A-wFJ"/>
+                            <constraint firstItem="prU-gw-yc0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="iJs-1h-U7a"/>
                             <constraint firstItem="ZjG-ua-nTi" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="kmV-YV-Pxc"/>
                             <constraint firstItem="SYM-bH-ZQX" firstAttribute="leading" secondItem="JsV-65-sGF" secondAttribute="trailing" constant="8" id="lYj-Ud-aBg"/>
                             <constraint firstItem="gNz-9t-T6v" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="lcT-ql-2ni"/>

@@ -35,6 +35,14 @@ struct UserSettingKey {
 }
 
 class UserSetting {
+
+    class func UserId() -> Int? {
+        let ud = NSUserDefaults.standardUserDefaults()
+        if let userid = ud.objectForKey(UserSettingKey.userId) as? Int {
+            return userid
+        }
+        return nil
+    }
     
     // store at first time login
     class func storeLoginResult(#result: ColorgyLoginResult) {

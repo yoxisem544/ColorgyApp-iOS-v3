@@ -19,7 +19,7 @@ class UserCourseObject: Printable {
     var term: Int
     var _type: String
     
-    var description: String { return "" }
+    var description: String { return "{\n\tuuid: \(uuid)\n\tid: \(id)\n\tcourse_organization_code: \(course_organization_code)\n\tcourse_code: \(course_code)\n\tuser_id: \(user_id)\n\tyear: \(year)\n\tterm: \(term)\n\t_type: \(_type)\n}" }
     
     private struct UserCourseObjectKey {
         static let uuid = "uuid"

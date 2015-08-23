@@ -47,9 +47,17 @@ class ColorgyAPI {
         }
         
     }
+    
     // get me courses
-    class func getMeCourses() {
-        
+    class func getMeCourses(completionHanlder: (json: JSON?) -> Void) {
+        let ud = NSUserDefaults.standardUserDefaults()
+        if let userId = UserSetting.UserId() {
+            let userIdString = String(userId)
+            ColorgyAPI.getUserCoursesWithId(userIdString, comletionHandler: completionHanlder)
+        } else {
+            println(ColorgyErrorType.noSuchUser)
+            completionHanlder(json: nil)
+        }
     }
     // get other's courses
     // TODO: make a completion handler.
@@ -83,10 +91,12 @@ class ColorgyAPI {
         }
         
     }
+    
     // PUT class
     // DELETE class
     // get user basic info
     // after get user basic info, do i need to download their image?
+    // no, i'll download it if i need it
     
     
     
