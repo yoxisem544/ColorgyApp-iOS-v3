@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Course {
+class Course: Printable {
     // properties
     // what do we need of a course?
     var code: String
@@ -23,6 +23,7 @@ class Course {
     var periods: [Int]?
     var locations: [String]?
     
+    var description: String { return "{\n\tcode: \(code)\n\tname: \(name)\n\tyear: \(year)\n\tterm: \(term)\n\tlecturer: \(lecturer)\n\tcredits: \(credits)\n\t_type: \(_type)\n\tdays: \(days)\n\tperiods: \(periods)\n\tlocations: \(locations)\n}" }
     
     private init?(code: String?, name: String?, year: Int?, term: Int?, lecturer: String?, credits: Int?, _type: String?, days: [Int]?, periods: [Int]?, locations: [String]?) {
         // optional part

@@ -33,16 +33,3 @@ class CourseRawDataArray {
         }
     }
 }
-
-extension JSON {
-    var isArray: Bool {
-        for (k, v) in self {
-            // will return 1 if this is a array
-            if k == "1" {
-                return true
-            }
-            break
-        }
-        return false
-    }
-}

@@ -62,7 +62,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var getuseridtextfield: UITextField!
     @IBAction func getusercourses(sender: AnyObject) {
         if let id = self.getuseridtextfield.text {
-            ColorgyAPI.getUserCoursesWithId(id)
+            ColorgyAPI.getUserCoursesWithId(id, comletionHandler: { (json) -> Void in
+                println("okgetcourse")
+                println(json)
+                for (k,v) in json! {
+                    println(k)
+                }
+                var arr = UserCourseObjectArray(json: json)
+                println(arr.objects?.count)
+            })
         }
     }
     let user = ColorgyUser()
