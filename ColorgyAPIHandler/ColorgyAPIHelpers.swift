@@ -19,7 +19,7 @@ class ColorgyAPI {
     
     // user API
     // get me
-    static func me(completionHandler: (result: ColorgyAPIMeResult?, error: AnyObject?) -> Void) {
+    class func me(completionHandler: (result: ColorgyAPIMeResult?, error: AnyObject?) -> Void) {
         
         let afManager = AFHTTPSessionManager(baseURL: nil)
         afManager.requestSerializer = AFJSONRequestSerializer()
@@ -48,11 +48,12 @@ class ColorgyAPI {
         
     }
     // get me courses
-    static func getMeCourses() {
+    class func getMeCourses() {
         
     }
     // get other's courses
-    static func getUserCoursesWithId(userid: String) {
+    // TODO: make a completion handler.
+    class func getUserCoursesWithId(userid: String) {
         
         let afManager = AFHTTPSessionManager(baseURL: nil)
         afManager.requestSerializer = AFJSONRequestSerializer()
@@ -67,7 +68,9 @@ class ColorgyAPI {
                 afManager.GET(url, parameters: nil, success: { (task: NSURLSessionDataTask, response: AnyObject) -> Void in
                     // will return a array of courses
                     let json = JSON(response)
-                    println(json)
+                    for (key, value) in json {
+                        println("key \(key), \(value)")
+                    }
                     }, failure: { (task: NSURLSessionDataTask, error: NSError) -> Void in
                         println(ColorgyErrorType.APIFailure.failGetUserCourses)
                 })

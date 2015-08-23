@@ -72,7 +72,8 @@ class ViewController: UIViewController {
         println(self.user)
 //        CourseDB.storeFakeData()
 //        CourseDB.storeFakeData()
-        CourseDB.getAllCourses()
+//        CourseDB.getAllStoredCoursesObject()
+//        CourseDB.deleteCourseWithCourseCode("1041-AC5007701")
     }
 
     override func didReceiveMemoryWarning() {

@@ -37,7 +37,7 @@ struct UserSettingKey {
 class UserSetting {
     
     // store at first time login
-    static func storeLoginResult(#result: ColorgyLoginResult) {
+    class func storeLoginResult(#result: ColorgyLoginResult) {
         let ud = NSUserDefaults.standardUserDefaults()
         ud.setObject(result.access_token, forKey: UserSettingKey.userAccessToken)
         ud.setObject(result.created_at, forKey: UserSettingKey.accessTokenCreatedTime)
@@ -48,7 +48,7 @@ class UserSetting {
         ud.synchronize()
     }
     
-    static func storeAPIMeResult(#result: ColorgyAPIMeResult) {
+    class func storeAPIMeResult(#result: ColorgyAPIMeResult) {
         let ud = NSUserDefaults.standardUserDefaults()
         ud.setObject(result._type, forKey: UserSettingKey.userType)
         ud.setObject(result.avatar_url, forKey: UserSettingKey.userAvatarUrl)
@@ -67,5 +67,59 @@ class UserSetting {
     // TODO: logout delete settings
     // while logging out, delete setting
     // 1. logout deleting setting
+    class func deleteAllUserSettings() {
+        let ud = NSUserDefaults.standardUserDefaults()
+        ud.removeObjectForKey(UserSettingKey.userAccessToken)
+        ud.removeObjectForKey(UserSettingKey.userRefreshToken)
+        ud.removeObjectForKey(UserSettingKey.accessTokenCreatedTime)
+        ud.removeObjectForKey(UserSettingKey.accessTokenExpiredTime)
+        ud.removeObjectForKey(UserSettingKey.accessTokenscope)
+        ud.removeObjectForKey(UserSettingKey.isLogin)
+        ud.removeObjectForKey(UserSettingKey.accessTokenTokenType)
+        // user info
+        // something to do with me API result
+        ud.removeObjectForKey(UserSettingKey.userName)
+        ud.removeObjectForKey(UserSettingKey.userAccountName)
+        ud.removeObjectForKey(UserSettingKey.userOrganization)
+        ud.removeObjectForKey(UserSettingKey.userDepartment)
+        ud.removeObjectForKey(UserSettingKey.userId)
+        ud.removeObjectForKey(UserSettingKey.userUUID)
+        ud.removeObjectForKey(UserSettingKey.userAvatarUrl)
+        ud.removeObjectForKey(UserSettingKey.userCoverPhotoUrl)
+        ud.removeObjectForKey(UserSettingKey.userType)
+        // new key for unauthorized users
+        ud.removeObjectForKey(UserSettingKey.userPossibleOrganization)
+        ud.removeObjectForKey(UserSettingKey.userPossibleDepartment)
+        // guide keu
+        ud.removeObjectForKey(UserSettingKey.isGuideShownToUser)
+        ud.synchronize()
+    }
     // 2. refresh token expired logout
+    class func refreshTokenExpiredUserSettingDeletion() {
+        let ud = NSUserDefaults.standardUserDefaults()
+        ud.removeObjectForKey(UserSettingKey.userAccessToken)
+        ud.removeObjectForKey(UserSettingKey.userRefreshToken)
+        ud.removeObjectForKey(UserSettingKey.accessTokenCreatedTime)
+        ud.removeObjectForKey(UserSettingKey.accessTokenExpiredTime)
+        ud.removeObjectForKey(UserSettingKey.accessTokenscope)
+        ud.removeObjectForKey(UserSettingKey.isLogin)
+        ud.removeObjectForKey(UserSettingKey.accessTokenTokenType)
+        // user info
+        // something to do with me API result
+        ud.removeObjectForKey(UserSettingKey.userName)
+        ud.removeObjectForKey(UserSettingKey.userAccountName)
+        ud.removeObjectForKey(UserSettingKey.userOrganization)
+        ud.removeObjectForKey(UserSettingKey.userDepartment)
+        ud.removeObjectForKey(UserSettingKey.userId)
+        ud.removeObjectForKey(UserSettingKey.userUUID)
+        ud.removeObjectForKey(UserSettingKey.userAvatarUrl)
+        ud.removeObjectForKey(UserSettingKey.userCoverPhotoUrl)
+        ud.removeObjectForKey(UserSettingKey.userType)
+        // new key for unauthorized users
+        ud.removeObjectForKey(UserSettingKey.userPossibleOrganization)
+        ud.removeObjectForKey(UserSettingKey.userPossibleDepartment)
+        // guide keu
+//        ud.removeObjectForKey(UserSettingKey.isGuideShownToUser)
+        ud.synchronize()
+    }
 }

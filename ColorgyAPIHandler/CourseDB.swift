@@ -12,7 +12,7 @@ import CoreData
 class CourseDB {
     
     // delete all
-    static func deleteAllCourses() {
+    class func deleteAllCourses() {
         if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
             let fetchRequest = NSFetchRequest(entityName: "Course")
             var e: NSError?
@@ -32,13 +32,26 @@ class CourseDB {
         }
     }
     // delete specific course using code: String
-    func deleteCourseWithCourseCode(code: String) {
-        
+    class func deleteCourseWithCourseCode(code: String) {
+        if let courseObjects = CourseDB.getAllStoredCoursesObject() {
+            for courseObject in courseObjects {
+                if courseObject.uuid == code {
+                    if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
+                        var e: NSError?
+                        managedObjectContext.deleteObject(courseObject)
+                        if managedObjectContext.save(&e) != true {
+                            println(ColorgyErrorType.DBFailure.saveFail)
+                        }
+                    }
+                }
+            }
+        }
     }
+    
     // store course with a object??? maybe call this a courseRawData
     
     // get out all courses
-    static func getAllCourses() {
+    class func getAllStoredCoursesObject() -> [CourseDBManagedObject]? {
         // TODO: we dont want to take care of dirty things, so i think i need to have a course class to handle this.
         if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
             let fetchRequest = NSFetchRequest(entityName: "Course")
@@ -47,15 +60,14 @@ class CourseDB {
             if e != nil {
                 println(ColorgyErrorType.DBFailure.fetchFail)
             } else {
-                for c in coursesInDB {
-                    println(c)
-                }
+                return coursesInDB
             }
         }
+        return nil
     }
     
     // fake data
-    static func storeFakeData() {
+    class func storeFakeData() {
         if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
             var courseObject = NSEntityDescription.insertNewObjectForEntityForName("Course", inManagedObjectContext: managedObjectContext) as! CourseDBManagedObject
             // assign data
