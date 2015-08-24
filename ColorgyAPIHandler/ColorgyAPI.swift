@@ -46,9 +46,69 @@ class ColorgyAPI {
     
     // course API
     // get course info
-    // get course students
+    /// Get a specific course raw data object using course code.
+    /// Will just return a single data object.
+    /// Not an array
+    ///
+    /// :param: code: A specific course code.
+    /// :returns: courseRawDataObject: A single CourseRawDataObject?, might be nil.
+    class func getCourseRawDataObjectWithCourseCode(code: String, completionHandler: (courseRawDataObject: CourseRawDataObject?) -> Void) {
+        
+        let afManager = AFHTTPSessionManager(baseURL: nil)
+        afManager.requestSerializer = AFJSONRequestSerializer()
+        afManager.responseSerializer = AFJSONResponseSerializer()
+        
+        if let accesstoken = UserSetting.UserAccessToken() {
+            let url = "https://colorgy.io:443/api/v1/ntust/courses/" + code + ".json?access_token=" + accesstoken
+            
+            afManager.GET(url, parameters: nil, success: { (task: NSURLSessionDataTask, response: AnyObject) -> Void in
+                println(response)
+                let json = JSON(response)
+                let object = CourseRawDataObject(json: json)
+                completionHandler(courseRawDataObject: object)
+                }, failure: { (task: NSURLSessionDataTask, error: NSError) -> Void in
+                    println("Err \(error)")
+                    completionHandler(courseRawDataObject: nil)
+            })
+        } else {
+            println(ColorgyErrorType.APIFailure.failGetUserCourses)
+            completionHandler(courseRawDataObject: nil)
+        }
+    }
     
-    // user API
+    // get students enrolled in specific course
+    /// Get users who enroll in specific course.
+    /// Server will return a UserCourseObject.
+    ///
+    /// :param: code: A course code.
+    /// :returns: userCourseObjects: A [UserCourseObject]? array, might be nil.
+    class func getStudentsInSpecificCourse(code: String, completionHandler: (userCourseObjects: [UserCourseObject]?) -> Void) {
+        // server will return an array of user course objects json.
+        let afManager = AFHTTPSessionManager(baseURL: nil)
+        afManager.requestSerializer = AFJSONRequestSerializer()
+        afManager.responseSerializer = AFJSONResponseSerializer()
+        
+        if let accesstoken = UserSetting.UserAccessToken() {
+            // check if course code is "" nothing. server will crash if no course_code passed in.
+            if code.stringWithNoSpaceAndNewLine != "" {
+                let url = "https://colorgy.io:443/api/v1/user_courses.json?filter%5Bcourse_code%5D=" + code.stringWithNoSpaceAndNewLine + "&&&&&&&&&access_token=" + accesstoken
+                
+                afManager.GET(url, parameters: nil, success: { (task: NSURLSessionDataTask, response: AnyObject) -> Void in
+                    let json = JSON(response)
+                    let objects = UserCourseObjectArray(json: json).objects
+                    completionHandler(userCourseObjects: objects)
+                    }, failure: { (task: NSURLSessionDataTask, error: NSError) -> Void in
+                        println(ColorgyErrorType.APIFailure.failGetUserCourses)
+                        completionHandler(userCourseObjects: nil)
+                })
+            }
+        } else {
+            println(ColorgyErrorType.APIFailure.failGetUserCourses)
+            completionHandler(userCourseObjects: nil)
+        }
+    }
+    
+    // MARK: - User API
     // get me
     /// You can simply get Me API using this.
     /// 
@@ -62,8 +122,7 @@ class ColorgyAPI {
         
         println("getting me API")
         
-        let user = ColorgyUser()
-        if let accesstoken = user?.accessToken {
+        if let accesstoken = UserSetting.UserAccessToken() {
             let url = "https://colorgy.io:443/api/v1/me.json?access_token=" + accesstoken
             
             afManager.GET(url, parameters: nil, success: { (task: NSURLSessionDataTask, response: AnyObject) -> Void in
@@ -91,7 +150,7 @@ class ColorgyAPI {
         let ud = NSUserDefaults.standardUserDefaults()
         if let userId = UserSetting.UserId() {
             let userIdString = String(userId)
-            ColorgyAPI.getUserCoursesWithId(userIdString, comletionHandler: completionHanlder)
+            ColorgyAPI.getUserCoursesWithUserId(userIdString, comletionHandler: completionHanlder)
         } else {
             println(ColorgyErrorType.noSuchUser)
             completionHanlder(userCourseObjects: nil)
@@ -104,7 +163,7 @@ class ColorgyAPI {
     ///
     /// :param: userid: A specific user id
     /// :returns: userCourseObjects: A [UserCourseObject]? array, might be nil or 0 element.
-    class func getUserCoursesWithId(userid: String, comletionHandler: (userCourseObjects: [UserCourseObject]?) -> Void) {
+    class func getUserCoursesWithUserId(userid: String, comletionHandler: (userCourseObjects: [UserCourseObject]?) -> Void) {
         
         let afManager = AFHTTPSessionManager(baseURL: nil)
         afManager.requestSerializer = AFJSONRequestSerializer()

@@ -9,6 +9,7 @@
 import Foundation
 
 extension JSON {
+    /// If this json is an array.
     var isArray: Bool {
         for (k, v) in self {
             // will return 1 if this is a array
