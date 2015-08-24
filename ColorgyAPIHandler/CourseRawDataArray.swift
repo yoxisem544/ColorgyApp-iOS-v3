@@ -13,7 +13,7 @@ class CourseRawDataArray {
     
     /// An array that contains parsed CourseRawDataObject that you can easily use with.
     ///
-    /// check the count of this objects, might be zero or nil
+    /// check the count of this objects, might be nil
     var objects: [CourseRawDataObject]?
     
     /// Initialization: Create a Array that contains CourseRawDataObjects.
@@ -30,6 +30,10 @@ class CourseRawDataArray {
                     if let courseRawData = CourseRawDataObject(json: json) {
                         self.objects?.append(courseRawData)
                     }
+                }
+                // if zero element, set it back to nil
+                if self.objects?.count == 0 {
+                    self.objects = nil
                 }
             } else {
                 // only one object

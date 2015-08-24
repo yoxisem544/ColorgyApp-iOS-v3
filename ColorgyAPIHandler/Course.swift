@@ -135,5 +135,23 @@ class Course: Printable {
 //    }
     
     // functions?
-    
+    class func generateCourseArrayWithRawDataObjects(rawDataObjects: [CourseRawDataObject]) -> [Course]? {
+        if rawDataObjects.count != 0 {
+            var courses = [Course]()
+            for rawDataObject in rawDataObjects {
+                if let course = Course(rawData: rawDataObject) {
+                    courses.append(course)
+                }
+            }
+            // check array length
+            if courses.count == 0 {
+                // if this array contains on element, return nil
+                return nil
+            } else {
+                return courses
+            }
+        } else {
+             return nil
+        }
+    }
 }

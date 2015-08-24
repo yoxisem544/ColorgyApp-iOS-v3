@@ -32,10 +32,13 @@ struct UserSettingKey {
     static let userPossibleDepartment = "userPossibleDepartment"
     // guide keu
     static let isGuideShownToUser = "isGuideShownToUser"
+    // local course caching data 
+    static let localCourseCachingData = "courseDataFromServer"
 }
 
 class UserSetting {
 
+    // MARK: - getters
     class func UserId() -> Int? {
         let ud = NSUserDefaults.standardUserDefaults()
         if let userid = ud.objectForKey(UserSettingKey.userId) as? Int {
@@ -60,6 +63,22 @@ class UserSetting {
         return nil
     }
     
+    // MARK: - store local course caching data
+    class func storeRawCourseJSON(rawJSON: JSON?) {
+        if let json = rawJSON {
+            if let data = json.rawData(){
+                NSUserDefaults.standardUserDefaults().setObject(data, forKey: UserSettingKey.localCourseCachingData)
+                NSUserDefaults.standardUserDefaults().synchronize()
+            }
+        }
+    }
+    
+    class func deleteLocalCourseDataCaching() {
+        NSUserDefaults.standardUserDefaults().removeObjectForKey(UserSettingKey.localCourseCachingData)
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    
+    // MARK: - save user settings
     // store at first time login
     class func storeLoginResult(#result: ColorgyLoginResult) {
         let ud = NSUserDefaults.standardUserDefaults()
@@ -88,6 +107,7 @@ class UserSetting {
         ud.synchronize()
     }
     
+    // MARK: - delete user settings
     // TODO: logout delete settings
     // while logging out, delete setting
     // 1. logout deleting setting
@@ -116,6 +136,8 @@ class UserSetting {
         ud.removeObjectForKey(UserSettingKey.userPossibleDepartment)
         // guide keu
         ud.removeObjectForKey(UserSettingKey.isGuideShownToUser)
+        // local caching data
+        ud.removeObjectForKey(UserSettingKey.localCourseCachingData)
         ud.synchronize()
     }
     // 2. refresh token expired logout

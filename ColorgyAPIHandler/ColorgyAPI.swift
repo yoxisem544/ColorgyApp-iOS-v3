@@ -18,7 +18,7 @@ class ColorgyAPI {
     ///
     /// :param: count: Pass the count you want to download. nil, 0, -1~ for all course.
     /// :returns: courseRawDataObjects: A parsed [CourseRawDataObject]? array. Might be nil or 0 element.
-    class func getSchoolCourseData(count: Int?, completionHandler: (courseRawDataObjects: [CourseRawDataObject]?) -> Void) {
+    class func getSchoolCourseData(count: Int?, completionHandler: (courseRawDataObjects: [CourseRawDataObject]?, json: JSON?) -> Void) {
         
         let afManager = AFHTTPSessionManager(baseURL: nil)
         afManager.requestSerializer = AFJSONRequestSerializer()
@@ -32,14 +32,14 @@ class ColorgyAPI {
                 afManager.GET(url, parameters: nil, success: { (task: NSURLSessionDataTask, response: AnyObject) -> Void in
                     let json = JSON(response)
                     let courseRawDataArray = CourseRawDataArray(json: json)
-                    completionHandler(courseRawDataObjects: courseRawDataArray.objects)
+                    completionHandler(courseRawDataObjects: courseRawDataArray.objects, json: json)
                     }, failure: { (task: NSURLSessionDataTask, error: NSError) -> Void in
                         println(ColorgyErrorType.APIFailure.failDownloadCourses)
-                        completionHandler(courseRawDataObjects: nil)
+                        completionHandler(courseRawDataObjects: nil, json: nil)
                 })
             }
         } else {
-            completionHandler(courseRawDataObjects: nil)
+            completionHandler(courseRawDataObjects: nil, json: nil)
             println(ColorgyErrorType.noOrganization)
         }
     }

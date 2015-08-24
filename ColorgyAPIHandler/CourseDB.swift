@@ -67,6 +67,9 @@ class CourseDB {
             var coursesInDB: [CourseDBManagedObject] = managedObjectContext.executeFetchRequest(fetchRequest, error: &e) as! [CourseDBManagedObject]
             if e != nil {
                 println(ColorgyErrorType.DBFailure.fetchFail)
+            } else if coursesInDB.count == 0 {
+                // return nil if element in array is zero.
+                return nil
             } else {
                 return coursesInDB
             }

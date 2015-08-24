@@ -81,7 +81,7 @@ class ViewController: UIViewController {
     }
     @IBAction func downloadcoursescli(sender: AnyObject) {
         if let counts = self.coursecounttextfield.text.toInt() {
-            ColorgyAPI.getSchoolCourseData(counts, completionHandler: { (courseRawDataObjects) -> Void in
+            ColorgyAPI.getSchoolCourseData(counts, completionHandler: { (courseRawDataObjects, json) -> Void in
                 if let rawdataobjects = courseRawDataObjects {
                     for o in rawdataobjects {
                         println(o)
@@ -96,16 +96,22 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        println(self.user)
+//        println(self.user)
 //        CourseDB.storeFakeData()
 //        CourseDB.storeFakeData()
 //        CourseDB.getAllStoredCoursesObject()
 //        CourseDB.deleteCourseWithCourseCode("1041-AC5007701")
-        ColorgyAPI.getStudentsInSpecificCourse("1041-AC5007701", completionHandler: { (userCourseObjects) -> Void in
-            if let objs = userCourseObjects {
-                println("\(objs.count) people enrolled in this course")
+//        ColorgyAPI.getStudentsInSpecificCourse("1041-AC5007701", completionHandler: { (userCourseObjects) -> Void in
+//            if let objs = userCourseObjects {
+//                println("\(objs.count) people enrolled in this course")
+//            }
+//        })
+        ColorgyAPI.getSchoolCourseData(1, completionHandler: { (courseRawDataObjects, json) -> Void in
+            if let json = json {
+                UserSetting.storeRawCourseJSON(json)
             }
         })
+        println(LocalCachingData.jsonFormat)
     }
 
     override func didReceiveMemoryWarning() {

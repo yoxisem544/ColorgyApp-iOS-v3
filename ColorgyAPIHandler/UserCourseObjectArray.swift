@@ -24,6 +24,9 @@ class UserCourseObjectArray {
                         self.objects?.append(object)
                     }
                 }
+                if self.objects?.count == 0 {
+                    self.objects = nil
+                }
             } else {
                 if let object = UserCourseObject(json: json) {
                     self.objects?.append(object)

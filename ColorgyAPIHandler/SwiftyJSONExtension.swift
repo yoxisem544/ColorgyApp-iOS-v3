@@ -20,4 +20,11 @@ extension JSON {
         }
         return false
     }
+    
+    var isUnknownType: Bool {
+        if self.type == Type.Unknown {
+            return true
+        }
+        return false
+    }
 }
