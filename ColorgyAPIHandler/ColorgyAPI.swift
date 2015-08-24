@@ -28,15 +28,19 @@ class ColorgyAPI {
             if let accesstoken = UserSetting.UserAccessToken() {
                 let coursesCount = count ?? 20000
                 let url = "https://colorgy.io:443/api/v1/" + organization.lowercaseString + "/courses.json?per_page=" + String(coursesCount)+"&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&access_token=" + accesstoken
-            
-                afManager.GET(url, parameters: nil, success: { (task: NSURLSessionDataTask, response: AnyObject) -> Void in
-                    let json = JSON(response)
-                    let courseRawDataArray = CourseRawDataArray(json: json)
-                    completionHandler(courseRawDataObjects: courseRawDataArray.objects, json: json)
-                    }, failure: { (task: NSURLSessionDataTask, error: NSError) -> Void in
-                        println(ColorgyErrorType.APIFailure.failDownloadCourses)
-                        completionHandler(courseRawDataObjects: nil, json: nil)
-                })
+                if url.isValidURLString {
+                    afManager.GET(url, parameters: nil, success: { (task: NSURLSessionDataTask, response: AnyObject) -> Void in
+                        let json = JSON(response)
+                        let courseRawDataArray = CourseRawDataArray(json: json)
+                        completionHandler(courseRawDataObjects: courseRawDataArray.objects, json: json)
+                        }, failure: { (task: NSURLSessionDataTask, error: NSError) -> Void in
+                            println(ColorgyErrorType.APIFailure.failDownloadCourses)
+                            completionHandler(courseRawDataObjects: nil, json: nil)
+                    })
+                } else {
+                    println(ColorgyErrorType.invalidURLString)
+                    completionHandler(courseRawDataObjects: nil, json: nil)
+                }
             }
         } else {
             completionHandler(courseRawDataObjects: nil, json: nil)
@@ -61,15 +65,20 @@ class ColorgyAPI {
         if let accesstoken = UserSetting.UserAccessToken() {
             let url = "https://colorgy.io:443/api/v1/ntust/courses/" + code + ".json?access_token=" + accesstoken
             
-            afManager.GET(url, parameters: nil, success: { (task: NSURLSessionDataTask, response: AnyObject) -> Void in
-                println(response)
-                let json = JSON(response)
-                let object = CourseRawDataObject(json: json)
-                completionHandler(courseRawDataObject: object)
-                }, failure: { (task: NSURLSessionDataTask, error: NSError) -> Void in
-                    println("Err \(error)")
-                    completionHandler(courseRawDataObject: nil)
-            })
+            if url.isValidURLString {
+                afManager.GET(url, parameters: nil, success: { (task: NSURLSessionDataTask, response: AnyObject) -> Void in
+                    println(response)
+                    let json = JSON(response)
+                    let object = CourseRawDataObject(json: json)
+                    completionHandler(courseRawDataObject: object)
+                    }, failure: { (task: NSURLSessionDataTask, error: NSError) -> Void in
+                        println("Err \(error)")
+                        completionHandler(courseRawDataObject: nil)
+                })
+            } else {
+                println(ColorgyErrorType.invalidURLString)
+                completionHandler(courseRawDataObject: nil)
+            }
         } else {
             println(ColorgyErrorType.APIFailure.failGetUserCourses)
             completionHandler(courseRawDataObject: nil)
@@ -89,10 +98,8 @@ class ColorgyAPI {
         afManager.responseSerializer = AFJSONResponseSerializer()
         
         if let accesstoken = UserSetting.UserAccessToken() {
-            // check if course code is "" nothing. server will crash if no course_code passed in.
-            if code.stringWithNoSpaceAndNewLine != "" {
-                let url = "https://colorgy.io:443/api/v1/user_courses.json?filter%5Bcourse_code%5D=" + code.stringWithNoSpaceAndNewLine + "&&&&&&&&&access_token=" + accesstoken
-                
+            let url = "https://colorgy.io:443/api/v1/user_courses.json?filter%5Bcourse_code%5D=" + code + "&&&&&&&&&access_token=" + accesstoken
+            if url.isValidURLString {
                 afManager.GET(url, parameters: nil, success: { (task: NSURLSessionDataTask, response: AnyObject) -> Void in
                     let json = JSON(response)
                     let objects = UserCourseObjectArray(json: json).objects
@@ -101,6 +108,9 @@ class ColorgyAPI {
                         println(ColorgyErrorType.APIFailure.failGetUserCourses)
                         completionHandler(userCourseObjects: nil)
                 })
+            } else {
+                println(ColorgyErrorType.invalidURLString)
+                completionHandler(userCourseObjects: nil)
             }
         } else {
             println(ColorgyErrorType.APIFailure.failGetUserCourses)
@@ -125,17 +135,22 @@ class ColorgyAPI {
         if let accesstoken = UserSetting.UserAccessToken() {
             let url = "https://colorgy.io:443/api/v1/me.json?access_token=" + accesstoken
             
-            afManager.GET(url, parameters: nil, success: { (task: NSURLSessionDataTask, response: AnyObject) -> Void in
-                println("me API successfully get")
-                // will pass in a json, then generate a result
-                let json = JSON(response)
-                println("ME get!")
-                let result = ColorgyAPIMeResult(json: json)
-                completionHandler(result: result, error: nil)
-                }, failure: { (task: NSURLSessionDataTask, error: NSError) -> Void in
-                    println("fail to get me API")
-                    completionHandler(result: nil, error: "fail to get me API")
-            })
+            if url.isValidURLString {
+                afManager.GET(url, parameters: nil, success: { (task: NSURLSessionDataTask, response: AnyObject) -> Void in
+                    println("me API successfully get")
+                    // will pass in a json, then generate a result
+                    let json = JSON(response)
+                    println("ME get!")
+                    let result = ColorgyAPIMeResult(json: json)
+                    completionHandler(result: result, error: nil)
+                    }, failure: { (task: NSURLSessionDataTask, error: NSError) -> Void in
+                        println("fail to get me API")
+                        completionHandler(result: nil, error: "fail to get me API")
+                })
+            } else {
+                println(ColorgyErrorType.invalidURLString)
+                completionHandler(result: nil, error: ColorgyErrorType.invalidURLString)
+            }
         } else {
             completionHandler(result: nil, error: ColorgyErrorType.noAccessToken)
         }
@@ -150,7 +165,7 @@ class ColorgyAPI {
         let ud = NSUserDefaults.standardUserDefaults()
         if let userId = UserSetting.UserId() {
             let userIdString = String(userId)
-            ColorgyAPI.getUserCoursesWithUserId(userIdString, comletionHandler: completionHanlder)
+            ColorgyAPI.getUserCoursesWithUserId(userIdString, completionHandler: completionHanlder)
         } else {
             println(ColorgyErrorType.noSuchUser)
             completionHanlder(userCourseObjects: nil)
@@ -163,7 +178,7 @@ class ColorgyAPI {
     ///
     /// :param: userid: A specific user id
     /// :returns: userCourseObjects: A [UserCourseObject]? array, might be nil or 0 element.
-    class func getUserCoursesWithUserId(userid: String, comletionHandler: (userCourseObjects: [UserCourseObject]?) -> Void) {
+    class func getUserCoursesWithUserId(userid: String, completionHandler: (userCourseObjects: [UserCourseObject]?) -> Void) {
         
         let afManager = AFHTTPSessionManager(baseURL: nil)
         afManager.requestSerializer = AFJSONRequestSerializer()
@@ -175,22 +190,27 @@ class ColorgyAPI {
             if let accesstoken = user.accessToken {
                 let url = "https://colorgy.io:443/api/v1/user_courses.json?filter%5Buser_id%5D=" + userid + "&&&&&&&&&&access_token=" + accesstoken
                 
-                afManager.GET(url, parameters: nil, success: { (task: NSURLSessionDataTask, response: AnyObject) -> Void in
-                    // will return a array of courses
-                    let json = JSON(response)
-                    let userCourseObjects = UserCourseObjectArray(json: json).objects
-                    comletionHandler(userCourseObjects: userCourseObjects)
-                    }, failure: { (task: NSURLSessionDataTask, error: NSError) -> Void in
-                        println(ColorgyErrorType.APIFailure.failGetUserCourses)
-                        comletionHandler(userCourseObjects: nil)
-                })
+                if url.isValidURLString {
+                    afManager.GET(url, parameters: nil, success: { (task: NSURLSessionDataTask, response: AnyObject) -> Void in
+                        // will return a array of courses
+                        let json = JSON(response)
+                        let userCourseObjects = UserCourseObjectArray(json: json).objects
+                        completionHandler(userCourseObjects: userCourseObjects)
+                        }, failure: { (task: NSURLSessionDataTask, error: NSError) -> Void in
+                            println(ColorgyErrorType.APIFailure.failGetUserCourses)
+                            completionHandler(userCourseObjects: nil)
+                    })
+                } else {
+                    println(ColorgyErrorType.invalidURLString)
+                    completionHandler(userCourseObjects: nil)
+                }
             } else {
                 println(ColorgyErrorType.noAccessToken)
-                comletionHandler(userCourseObjects: nil)
+                completionHandler(userCourseObjects: nil)
             }
         } else {
             println(ColorgyErrorType.noSuchUser)
-            comletionHandler(userCourseObjects: nil)
+            completionHandler(userCourseObjects: nil)
         }
         
     }

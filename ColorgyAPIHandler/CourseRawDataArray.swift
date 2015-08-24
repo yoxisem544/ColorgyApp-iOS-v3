@@ -40,6 +40,9 @@ class CourseRawDataArray {
                 if let courseRawData = CourseRawDataObject(json: json) {
                     self.objects?.append(courseRawData)
                 }
+                if self.objects?.count == 0 {
+                    self.objects = nil
+                }
             }
         }
     }

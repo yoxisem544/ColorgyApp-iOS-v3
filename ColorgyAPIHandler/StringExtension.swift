@@ -12,4 +12,8 @@ extension String {
     var stringWithNoSpaceAndNewLine: String {
         return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
     }
+    
+    var isValidURLString: Bool {
+        return (NSURL(string: self) != nil)
+    }
 }

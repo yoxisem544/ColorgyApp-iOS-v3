@@ -62,7 +62,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var getuseridtextfield: UITextField!
     @IBAction func getusercourses(sender: AnyObject) {
         if let id = self.getuseridtextfield.text {
-            ColorgyAPI.getUserCoursesWithUserId(id, comletionHandler: { (userCourseObjects) -> Void in
+            ColorgyAPI.getUserCoursesWithUserId(id, completionHandler: { (userCourseObjects) -> Void in
                 println("okgetcourse")
 
                 if let a = userCourseObjects {
@@ -106,12 +106,16 @@ class ViewController: UIViewController {
 //                println("\(objs.count) people enrolled in this course")
 //            }
 //        })
-        ColorgyAPI.getSchoolCourseData(1, completionHandler: { (courseRawDataObjects, json) -> Void in
-            if let json = json {
-                UserSetting.storeRawCourseJSON(json)
-            }
+//        ColorgyAPI.getSchoolCourseData(1, completionHandler: { (courseRawDataObjects, json) -> Void in
+//            if let json = json {
+//                UserSetting.storeRawCourseJSON(json)
+//            }
+//        })
+//        println(LocalCachingData.jsonFormat)
+        ColorgyAPI.getStudentsInSpecificCourse("a", completionHandler: { (userCourseObjects) -> Void in
+            println("OK")
+            println(userCourseObjects)
         })
-        println(LocalCachingData.jsonFormat)
     }
 
     override func didReceiveMemoryWarning() {

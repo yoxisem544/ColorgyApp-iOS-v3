@@ -25,4 +25,5 @@ struct ColorgyErrorType {
         static let saveFail = "user fail to save and make change to db"
         static let fetchFail = "user fetch data from db fail"
     }
+    static let invalidURLString = "This string is an invalid url string"
 }
