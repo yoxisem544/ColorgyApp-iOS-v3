@@ -102,6 +102,15 @@
                                     <action selector="downloadcoursescli:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Snj-ki-33z"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J26-VD-hd8">
+                                <rect key="frame" x="16" y="315" width="96" height="30"/>
+                                <state key="normal" title="Refresh token">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="refreshtokenclicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wGp-41-2Cp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -120,6 +129,7 @@
                             <constraint firstItem="KNF-E2-L1F" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="VrK-Ud-EzM"/>
                             <constraint firstItem="76A-tf-ckk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="W4Q-c0-bE4"/>
                             <constraint firstItem="ZjG-ua-nTi" firstAttribute="top" secondItem="JsV-65-sGF" secondAttribute="bottom" constant="8" id="WHv-ZL-kql"/>
+                            <constraint firstItem="J26-VD-hd8" firstAttribute="top" secondItem="76A-tf-ckk" secondAttribute="bottom" constant="8" id="ZQ4-gF-RyB"/>
                             <constraint firstItem="JsV-65-sGF" firstAttribute="top" secondItem="KNF-E2-L1F" secondAttribute="bottom" constant="8" id="a0o-oY-kfD"/>
                             <constraint firstItem="2q1-vm-2bu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="aP9-7L-WBi"/>
                             <constraint firstItem="JsV-65-sGF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="b6q-2y-RDe"/>
@@ -127,6 +137,7 @@
                             <constraint firstItem="76A-tf-ckk" firstAttribute="top" secondItem="prU-gw-yc0" secondAttribute="bottom" constant="8" id="gZe-9y-xeL"/>
                             <constraint firstItem="2q1-vm-2bu" firstAttribute="leading" secondItem="KNF-E2-L1F" secondAttribute="trailing" constant="8" id="hQ0-6A-wFJ"/>
                             <constraint firstItem="prU-gw-yc0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="iJs-1h-U7a"/>
+                            <constraint firstItem="J26-VD-hd8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="kG2-97-rZe"/>
                             <constraint firstItem="ZjG-ua-nTi" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="kmV-YV-Pxc"/>
                             <constraint firstItem="SYM-bH-ZQX" firstAttribute="leading" secondItem="JsV-65-sGF" secondAttribute="trailing" constant="8" id="lYj-Ud-aBg"/>
                             <constraint firstItem="gNz-9t-T6v" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="lcT-ql-2ni"/>

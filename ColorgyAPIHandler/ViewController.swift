@@ -83,9 +83,7 @@ class ViewController: UIViewController {
         if let counts = self.coursecounttextfield.text.toInt() {
             ColorgyAPI.getSchoolCourseData(counts, completionHandler: { (courseRawDataObjects, json) -> Void in
                 if let rawdataobjects = courseRawDataObjects {
-                    for o in rawdataobjects {
-                        println(o)
-                    }
+                    println("ok fetch school course")
                 }
             })
         }
@@ -118,6 +116,13 @@ class ViewController: UIViewController {
         })
     }
 
+    @IBAction func refreshtokenclicked(sender: AnyObject) {
+        ColorgyAPITrafficControlCenter.refreshAccessToken { (loginResult) -> Void in
+            if loginResult != nil {
+                println("refresh ended")
+            }
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

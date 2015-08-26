@@ -63,6 +63,14 @@ class UserSetting {
         return nil
     }
     
+    class func UserRefreshToken() -> String? {
+        let ud = NSUserDefaults.standardUserDefaults()
+        if let userRefreshToken = ud.objectForKey(UserSettingKey.userRefreshToken) as? String {
+            return userRefreshToken
+        }
+        return nil
+    }
+    
     // MARK: - store local course caching data
     class func storeRawCourseJSON(rawJSON: JSON?) {
         if let json = rawJSON {

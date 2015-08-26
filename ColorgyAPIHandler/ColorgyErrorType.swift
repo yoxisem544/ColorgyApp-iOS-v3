@@ -26,4 +26,8 @@ struct ColorgyErrorType {
         static let fetchFail = "user fetch data from db fail"
     }
     static let invalidURLString = "This string is an invalid url string"
+    struct TrafficError {
+        static let stillRefreshing = "stillRefreshing"
+        static let refreshTokenExpired = "refreshTokenExpired"
+    }
 }

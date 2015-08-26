@@ -41,6 +41,8 @@ class ColorgyLogin {
     // connect to colorgy with fb token
     /// Login to Colorgy using Facebook's access token.
     ///
+    /// **If successfully login, then will auto save login information**
+    ///
     /// :param: token: A Facebook access token.
     /// :returns: response: A ColorgyLoginResult, simply store it using **UserSetting.storeLoginResult**
     class func loginToColorgyWithToken(token: String, handler: (response: ColorgyLoginResult?, error: AnyObject?) -> Void) {
@@ -65,6 +67,7 @@ class ColorgyLogin {
             println("ok 200 from colorgy")
             let json = JSON(response)
             let result = ColorgyLoginResult(response: json)
+            UserSetting.storeLoginResult(result: result)
             handler(response: result, error: nil)
             }, failure: { (task: NSURLSessionDataTask, error: NSError) -> Void in
                 println(ColorgyErrorType.failToLoginColorgy)
