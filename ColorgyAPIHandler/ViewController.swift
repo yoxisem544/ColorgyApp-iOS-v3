@@ -134,7 +134,17 @@ class ViewController: UIViewController {
     @IBAction func networktest(sender: AnyObject) {
         println("Click get quality")
         NetwrokQualityDetector.getNetworkQuality { (quality) -> Void in
-            println(quality)
+            if quality == NetworkQuality.HighSpeedNetwork {
+                println("Hi!")
+            } else if quality == NetworkQuality.NormalSpeedNetwork {
+                println("NormalSpeedNetwork!")
+            } else if quality == NetworkQuality.LowSpeedNetwork {
+                println("LowSpeedNetwork!")
+            } else if quality == NetworkQuality.VeryBadNetwork {
+                println("VeryBadNetwork!")
+            } else if quality == NetworkQuality.NoNetwork {
+                println("NoNetwork!")
+            }
         }
     }
     override func didReceiveMemoryWarning() {

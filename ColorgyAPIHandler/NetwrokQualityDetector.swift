@@ -10,7 +10,7 @@ import Foundation
 
 class NetwrokQualityDetector {
     class func testSpeed() -> Double {
-        let url = SampleURL.jQueryOnGoogle
+        let url = SampleURL.jQuery
         var request = NSURLRequest(URL: NSURL(string: url)!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 60)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?> = nil
         
@@ -37,7 +37,7 @@ class NetwrokQualityDetector {
         } else if speed > 150 {
             return NetworkQuality.NormalSpeedNetwork
         } else if speed > 30 {
-            return NetworkQuality.LowSpeedNetwokr
+            return NetworkQuality.LowSpeedNetwork
         } else if speed > 0 {
             return NetworkQuality.VeryBadNetwork
         } else {
@@ -57,8 +57,26 @@ class NetwrokQualityDetector {
         })
     }
     
+    /// Check if network is stable enough to use
+    /// 
+    /// If network speed pinging to google is lower than 30KB/s, its unstable
+    ///
+    /// :returns: stable(): If speed is greater than 30KB/s
+    /// :returns: unstable(): If speed is less than 30KB/s
+    class func isNetworkStableToUse(stable: () -> Void, unstable: () -> Void) {
+        self.getNetworkQuality { (quality) -> Void in
+            if quality == NetworkQuality.HighSpeedNetwork || quality == NetworkQuality.NormalSpeedNetwork || quality == NetworkQuality.LowSpeedNetwork {
+                // good
+                stable()
+            } else {
+                // bad
+                unstable()
+            }
+        }
+    }
+    
     struct SampleURL {
-        static let jQuery = "http://code.jquery.com/code.jquery.com/jquery-1.11.3.min.js"
+        static let jQuery = "http://code.jquery.com/jquery-1.11.3.min.js"
         static let jQueryOnGoogle = "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.js"
         
     }
@@ -67,7 +85,7 @@ class NetwrokQualityDetector {
 enum NetworkQuality {
     case HighSpeedNetwork
     case NormalSpeedNetwork
-    case LowSpeedNetwokr
+    case LowSpeedNetwork
     case VeryBadNetwork
     case NoNetwork
 }
