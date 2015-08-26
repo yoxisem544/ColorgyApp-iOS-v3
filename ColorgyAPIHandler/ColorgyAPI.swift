@@ -160,6 +160,46 @@ class ColorgyAPI {
         }
     }
     
+    /// Get school/orgazination period data
+    ///
+    /// You can get school period data
+    ///
+    ///
+    class func getSchoolPeriodData(completionHandler: (periodDataObjects: [PeriodDataObject]?) -> Void) {
+        
+        let afManager = AFHTTPSessionManager(baseURL: nil)
+        afManager.requestSerializer = AFJSONRequestSerializer()
+        afManager.responseSerializer = AFJSONResponseSerializer()
+        
+        if ColorgyAPITrafficControlCenter.isTokenRefreshing() {
+            println(ColorgyErrorType.TrafficError.stillRefreshing)
+            completionHandler(periodDataObjects: nil)
+        } else {
+            if let accesstoken = UserSetting.UserAccessToken() {
+                let url = "https://colorgy.io:443/api/v1/ntust_period_data.json?access_token=\(accesstoken)"
+                // queue job
+                ColorgyAPITrafficControlCenter.queueNewBackgroundJob()
+                // then start job
+                afManager.GET(url, parameters: nil, success: { (task: NSURLSessionDataTask, response: AnyObject) -> Void in
+                    // job ended
+                    ColorgyAPITrafficControlCenter.unqueueBackgroundJob()
+                    // then handle response
+                    let json = JSON(response)
+                    let resultObjects = PeriodDataObject.generatePeriodDataObjects(json)
+                    completionHandler(periodDataObjects: resultObjects)
+                    }, failure: { (task: NSURLSessionDataTask, error: NSError) -> Void in
+                        // job ended
+                        ColorgyAPITrafficControlCenter.unqueueBackgroundJob()
+                        // then handle response
+                        completionHandler(periodDataObjects: nil)
+                })
+            } else {
+                println(ColorgyErrorType.noAccessToken)
+                completionHandler(periodDataObjects: nil)
+            }
+        }
+    }
+    
     // MARK: - User API
     // get me
     /// You can simply get Me API using this.

@@ -110,10 +110,10 @@ class ViewController: UIViewController {
 //            }
 //        })
 //        println(LocalCachingData.jsonFormat)
-        ColorgyAPI.getStudentsInSpecificCourse("a", completionHandler: { (userCourseObjects) -> Void in
-            println("OK")
-            println(userCourseObjects)
-        })
+//        ColorgyAPI.getStudentsInSpecificCourse("a", completionHandler: { (userCourseObjects) -> Void in
+//            println("OK")
+//            println(userCourseObjects)
+//        })
     }
 
     @IBAction func refreshtokenclicked(sender: AnyObject) {
@@ -121,6 +121,20 @@ class ViewController: UIViewController {
             if loginResult != nil {
                 println("refresh ended")
             }
+        }
+    }
+    @IBAction func getschoolperioddata(sender: AnyObject) {
+        ColorgyAPI.getSchoolPeriodData { (periodDataObjects) -> Void in
+            if let objects = periodDataObjects {
+                println(objects)
+            }
+        }
+    }
+
+    @IBAction func networktest(sender: AnyObject) {
+        println("Click get quality")
+        NetwrokQualityDetector.getNetworkQuality { (quality) -> Void in
+            println(quality)
         }
     }
     override func didReceiveMemoryWarning() {

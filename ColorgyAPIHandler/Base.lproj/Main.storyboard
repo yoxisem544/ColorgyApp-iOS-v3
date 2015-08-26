@@ -111,6 +111,24 @@
                                     <action selector="refreshtokenclicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wGp-41-2Cp"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whj-kj-zMS">
+                                <rect key="frame" x="16" y="353" width="157" height="30"/>
+                                <state key="normal" title="Get school period data">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getschoolperioddata:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fuJ-py-yS7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OEj-d7-9ik">
+                                <rect key="frame" x="16" y="391" width="85" height="30"/>
+                                <state key="normal" title="test network">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="networktest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vla-go-zxc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -129,10 +147,12 @@
                             <constraint firstItem="KNF-E2-L1F" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="VrK-Ud-EzM"/>
                             <constraint firstItem="76A-tf-ckk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="W4Q-c0-bE4"/>
                             <constraint firstItem="ZjG-ua-nTi" firstAttribute="top" secondItem="JsV-65-sGF" secondAttribute="bottom" constant="8" id="WHv-ZL-kql"/>
+                            <constraint firstItem="whj-kj-zMS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Y3L-En-50F"/>
                             <constraint firstItem="J26-VD-hd8" firstAttribute="top" secondItem="76A-tf-ckk" secondAttribute="bottom" constant="8" id="ZQ4-gF-RyB"/>
                             <constraint firstItem="JsV-65-sGF" firstAttribute="top" secondItem="KNF-E2-L1F" secondAttribute="bottom" constant="8" id="a0o-oY-kfD"/>
                             <constraint firstItem="2q1-vm-2bu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="aP9-7L-WBi"/>
                             <constraint firstItem="JsV-65-sGF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="b6q-2y-RDe"/>
+                            <constraint firstItem="whj-kj-zMS" firstAttribute="top" secondItem="J26-VD-hd8" secondAttribute="bottom" constant="8" id="c0O-Qy-QZg"/>
                             <constraint firstItem="SYM-bH-ZQX" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="cZF-GK-fud"/>
                             <constraint firstItem="76A-tf-ckk" firstAttribute="top" secondItem="prU-gw-yc0" secondAttribute="bottom" constant="8" id="gZe-9y-xeL"/>
                             <constraint firstItem="2q1-vm-2bu" firstAttribute="leading" secondItem="KNF-E2-L1F" secondAttribute="trailing" constant="8" id="hQ0-6A-wFJ"/>
@@ -143,6 +163,8 @@
                             <constraint firstItem="gNz-9t-T6v" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="lcT-ql-2ni"/>
                             <constraint firstItem="SYM-bH-ZQX" firstAttribute="top" secondItem="2q1-vm-2bu" secondAttribute="bottom" constant="8" id="oGl-d7-b6C"/>
                             <constraint firstItem="gNz-9t-T6v" firstAttribute="top" secondItem="ZjG-ua-nTi" secondAttribute="bottom" constant="8" id="oY7-GU-Eew"/>
+                            <constraint firstItem="OEj-d7-9ik" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="pVc-El-8TO"/>
+                            <constraint firstItem="OEj-d7-9ik" firstAttribute="top" secondItem="whj-kj-zMS" secondAttribute="bottom" constant="8" id="piR-XD-3mw"/>
                             <constraint firstItem="DG1-Rn-aP4" firstAttribute="leading" secondItem="lUT-mo-kFD" secondAttribute="trailing" constant="8" id="rBa-9u-SXJ"/>
                             <constraint firstItem="KNF-E2-L1F" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="rcX-GI-OOt"/>
                             <constraint firstItem="DG1-Rn-aP4" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="sdh-eW-U4H"/>
