@@ -63,7 +63,7 @@ class NetwrokQualityDetector {
     ///
     /// :returns: stable(): If speed is greater than 30KB/s
     /// :returns: unstable(): If speed is less than 30KB/s
-    class func isNetworkStableToUse(stable: () -> Void, unstable: () -> Void) {
+    class func isNetworkStableToUse(#stable: () -> Void, unstable: () -> Void) {
         self.getNetworkQuality { (quality) -> Void in
             if quality == NetworkQuality.HighSpeedNetwork || quality == NetworkQuality.NormalSpeedNetwork || quality == NetworkQuality.LowSpeedNetwork {
                 // good

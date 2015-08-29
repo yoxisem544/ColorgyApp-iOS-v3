@@ -39,10 +39,17 @@ class ColorgyAPI {
                         afManager.GET(url, parameters: nil, success: { (task: NSURLSessionDataTask, response: AnyObject) -> Void in
                             // job ended
                             ColorgyAPITrafficControlCenter.unqueueBackgroundJob()
-                            // then handle response
-                            let json = JSON(response)
-                            let courseRawDataArray = CourseRawDataArray(json: json)
-                            completionHandler(courseRawDataObjects: courseRawDataArray.objects, json: json)
+                            // into background
+                            let qos = Int(QOS_CLASS_USER_INTERACTIVE.value)
+                            dispatch_async(dispatch_get_global_queue(qos, 0), { () -> Void in
+                                // then handle response
+                                let json = JSON(response)
+                                let courseRawDataArray = CourseRawDataArray(json: json)
+                                // return to main queue
+                                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                    completionHandler(courseRawDataObjects: courseRawDataArray.objects, json: json)
+                                })
+                            })
                             }, failure: { (task: NSURLSessionDataTask, error: NSError) -> Void in
                                 // job ended
                                 ColorgyAPITrafficControlCenter.unqueueBackgroundJob()
@@ -90,11 +97,18 @@ class ColorgyAPI {
                     afManager.GET(url, parameters: nil, success: { (task: NSURLSessionDataTask, response: AnyObject) -> Void in
                         // job ended
                         ColorgyAPITrafficControlCenter.unqueueBackgroundJob()
-                        // then handle response
-                        println(response)
-                        let json = JSON(response)
-                        let object = CourseRawDataObject(json: json)
-                        completionHandler(courseRawDataObject: object)
+                        // into background
+                        let qos = Int(QOS_CLASS_USER_INTERACTIVE.value)
+                        dispatch_async(dispatch_get_global_queue(qos, 0), { () -> Void in
+                            // then handle response
+                            println(response)
+                            let json = JSON(response)
+                            let object = CourseRawDataObject(json: json)
+                                // return to main queue
+                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                completionHandler(courseRawDataObject: object)
+                            })
+                        })
                         }, failure: { (task: NSURLSessionDataTask, error: NSError) -> Void in
                             // job ended
                             ColorgyAPITrafficControlCenter.unqueueBackgroundJob()
@@ -138,10 +152,17 @@ class ColorgyAPI {
                     afManager.GET(url, parameters: nil, success: { (task: NSURLSessionDataTask, response: AnyObject) -> Void in
                         // job ended
                         ColorgyAPITrafficControlCenter.unqueueBackgroundJob()
-                        // then handle response
-                        let json = JSON(response)
-                        let objects = UserCourseObjectArray(json: json).objects
-                        completionHandler(userCourseObjects: objects)
+                        // into background
+                        let qos = Int(QOS_CLASS_USER_INTERACTIVE.value)
+                        dispatch_async(dispatch_get_global_queue(qos, 0), { () -> Void in
+                            // then handle response
+                            let json = JSON(response)
+                            let objects = UserCourseObjectArray(json: json).objects
+                            // return to main queue
+                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                completionHandler(userCourseObjects: objects)
+                            })
+                        })
                         }, failure: { (task: NSURLSessionDataTask, error: NSError) -> Void in
                             // job ended
                             ColorgyAPITrafficControlCenter.unqueueBackgroundJob()
@@ -183,10 +204,17 @@ class ColorgyAPI {
                 afManager.GET(url, parameters: nil, success: { (task: NSURLSessionDataTask, response: AnyObject) -> Void in
                     // job ended
                     ColorgyAPITrafficControlCenter.unqueueBackgroundJob()
-                    // then handle response
-                    let json = JSON(response)
-                    let resultObjects = PeriodDataObject.generatePeriodDataObjects(json)
-                    completionHandler(periodDataObjects: resultObjects)
+                    // into background
+                    let qos = Int(QOS_CLASS_USER_INTERACTIVE.value)
+                    dispatch_async(dispatch_get_global_queue(qos, 0), { () -> Void in
+                        // then handle response
+                        let json = JSON(response)
+                        let resultObjects = PeriodDataObject.generatePeriodDataObjects(json)
+                            // return to main queue
+                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                completionHandler(periodDataObjects: resultObjects)
+                            })
+                    })
                     }, failure: { (task: NSURLSessionDataTask, error: NSError) -> Void in
                         // job ended
                         ColorgyAPITrafficControlCenter.unqueueBackgroundJob()
@@ -228,13 +256,20 @@ class ColorgyAPI {
                     afManager.GET(url, parameters: nil, success: { (task: NSURLSessionDataTask, response: AnyObject) -> Void in
                         // job ended
                         ColorgyAPITrafficControlCenter.unqueueBackgroundJob()
-                        // then handle response
-                        println("me API successfully get")
-                        // will pass in a json, then generate a result
-                        let json = JSON(response)
-                        println("ME get!")
-                        let result = ColorgyAPIMeResult(json: json)
-                        completionHandler(result: result, error: nil)
+                        // into background
+                        let qos = Int(QOS_CLASS_USER_INTERACTIVE.value)
+                        dispatch_async(dispatch_get_global_queue(qos, 0), { () -> Void in
+                            // then handle response
+                            println("me API successfully get")
+                            // will pass in a json, then generate a result
+                            let json = JSON(response)
+                            println("ME get!")
+                            let result = ColorgyAPIMeResult(json: json)
+                            // return to main queue
+                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                completionHandler(result: result, error: nil)
+                            })
+                        })
                         }, failure: { (task: NSURLSessionDataTask, error: NSError) -> Void in
                             // job ended
                             ColorgyAPITrafficControlCenter.unqueueBackgroundJob()
@@ -297,11 +332,18 @@ class ColorgyAPI {
                         afManager.GET(url, parameters: nil, success: { (task: NSURLSessionDataTask, response: AnyObject) -> Void in
                             // job ended
                             ColorgyAPITrafficControlCenter.unqueueBackgroundJob()
-                            // then handle response
-                            // will return a array of courses
-                            let json = JSON(response)
-                            let userCourseObjects = UserCourseObjectArray(json: json).objects
-                            completionHandler(userCourseObjects: userCourseObjects)
+                            // into background
+                            let qos = Int(QOS_CLASS_USER_INTERACTIVE.value)
+                            dispatch_async(dispatch_get_global_queue(qos, 0), { () -> Void in
+                                // then handle response
+                                // will return a array of courses
+                                let json = JSON(response)
+                                let userCourseObjects = UserCourseObjectArray(json: json).objects
+                                // return to main queue
+                                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                    completionHandler(userCourseObjects: userCourseObjects)
+                                })
+                            })
                             }, failure: { (task: NSURLSessionDataTask, error: NSError) -> Void in
                                 // job ended
                                 ColorgyAPITrafficControlCenter.unqueueBackgroundJob()

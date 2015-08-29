@@ -129,6 +129,9 @@
                                     <action selector="networktest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vla-go-zxc"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Kct-NZ-Uih">
+                                <rect key="frame" x="14" y="429" width="572" height="31"/>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -158,16 +161,19 @@
                             <constraint firstItem="2q1-vm-2bu" firstAttribute="leading" secondItem="KNF-E2-L1F" secondAttribute="trailing" constant="8" id="hQ0-6A-wFJ"/>
                             <constraint firstItem="prU-gw-yc0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="iJs-1h-U7a"/>
                             <constraint firstItem="J26-VD-hd8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="kG2-97-rZe"/>
+                            <constraint firstItem="Kct-NZ-Uih" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="kS4-Rb-kYY"/>
                             <constraint firstItem="ZjG-ua-nTi" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="kmV-YV-Pxc"/>
                             <constraint firstItem="SYM-bH-ZQX" firstAttribute="leading" secondItem="JsV-65-sGF" secondAttribute="trailing" constant="8" id="lYj-Ud-aBg"/>
                             <constraint firstItem="gNz-9t-T6v" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="lcT-ql-2ni"/>
                             <constraint firstItem="SYM-bH-ZQX" firstAttribute="top" secondItem="2q1-vm-2bu" secondAttribute="bottom" constant="8" id="oGl-d7-b6C"/>
                             <constraint firstItem="gNz-9t-T6v" firstAttribute="top" secondItem="ZjG-ua-nTi" secondAttribute="bottom" constant="8" id="oY7-GU-Eew"/>
+                            <constraint firstItem="Kct-NZ-Uih" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="oah-xb-Sr1"/>
                             <constraint firstItem="OEj-d7-9ik" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="pVc-El-8TO"/>
                             <constraint firstItem="OEj-d7-9ik" firstAttribute="top" secondItem="whj-kj-zMS" secondAttribute="bottom" constant="8" id="piR-XD-3mw"/>
                             <constraint firstItem="DG1-Rn-aP4" firstAttribute="leading" secondItem="lUT-mo-kFD" secondAttribute="trailing" constant="8" id="rBa-9u-SXJ"/>
                             <constraint firstItem="KNF-E2-L1F" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="rcX-GI-OOt"/>
                             <constraint firstItem="DG1-Rn-aP4" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="sdh-eW-U4H"/>
+                            <constraint firstItem="Kct-NZ-Uih" firstAttribute="top" secondItem="OEj-d7-9ik" secondAttribute="bottom" constant="8" id="wCK-HE-aSe"/>
                         </constraints>
                     </view>
                     <connections>

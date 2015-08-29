@@ -114,14 +114,28 @@ class ViewController: UIViewController {
 //            println("OK")
 //            println(userCourseObjects)
 //        })
+        var tm = TimeTableView2(frame: self.view.frame)
+//        self.view.addSubview(tm)
+        
+        var tap = UITapGestureRecognizer(target: self, action: "tap")
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    func tap() {
+        self.view.endEditing(true)
     }
 
     @IBAction func refreshtokenclicked(sender: AnyObject) {
-        ColorgyAPITrafficControlCenter.refreshAccessToken { (loginResult) -> Void in
-            if loginResult != nil {
-                println("refresh ended")
+        println("refresh clicked")
+        NetwrokQualityDetector.isNetworkStableToUse(stable: { () -> Void in
+            ColorgyAPITrafficControlCenter.refreshAccessToken { (loginResult) -> Void in
+                if loginResult != nil {
+                    println("refresh ended")
+                }
             }
-        }
+        }, unstable: { () -> Void in
+            println("low speed")
+        })
     }
     @IBAction func getschoolperioddata(sender: AnyObject) {
         ColorgyAPI.getSchoolPeriodData { (periodDataObjects) -> Void in
@@ -155,3 +169,9 @@ class ViewController: UIViewController {
 
 }
 
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
