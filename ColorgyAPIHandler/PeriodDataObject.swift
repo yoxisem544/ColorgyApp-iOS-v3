@@ -15,15 +15,31 @@ class PeriodDataObject: Printable {
     var order: Int
     var id: Int
     var _type: String
+    var time: String
+    
+    // dictionary
+    var dictionary: [String : String] {
+        get {
+            var dict = [
+                PeriodKey.code: self.code,
+                PeriodKey.order: "\(self.order)",
+                PeriodKey.id: "\(self.id)",
+                PeriodKey._type: self._type,
+                PeriodKey.time: self.time
+            ]
+            return dict
+        }
+    }
     
     private struct PeriodKey {
         static let code = "code"
         static let order = "order"
         static let id = "id"
         static let _type = "_type"
+        static let time = "time"
     }
     
-    var description: String { return "{\n\tcode: \(code)\n\torder: \(order)\n\tid: \(id)\n\t_type: \(_type)\n}" }
+    var description: String { return "{\n\tcode: \(code)\n\torder: \(order)\n\tid: \(id)\n\t_type: \(_type)\n\ttime: \(time)\n}" }
     
     // 2. init
     init?(json: JSON?) {
@@ -31,6 +47,7 @@ class PeriodDataObject: Printable {
         order = 0
         id = 0
         _type = ""
+        time = ""
         if let json = json {
             if let code = json[PeriodKey.code].string {
                 self.code = code
@@ -49,6 +66,11 @@ class PeriodDataObject: Printable {
             }
             if let _type = json[PeriodKey._type].string {
                 self._type = _type
+            } else {
+                return nil
+            }
+            if let time = json[PeriodKey.time].string {
+                self.time = time
             } else {
                 return nil
             }

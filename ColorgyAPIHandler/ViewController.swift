@@ -114,7 +114,7 @@ class ViewController: UIViewController {
 //            println("OK")
 //            println(userCourseObjects)
 //        })
-        var tm = TimeTableView2(frame: self.view.frame)
+//        var tm = TimeTableView(frame: self.view.frame)
 //        self.view.addSubview(tm)
         
         var tap = UITapGestureRecognizer(target: self, action: "tap")
@@ -141,6 +141,8 @@ class ViewController: UIViewController {
         ColorgyAPI.getSchoolPeriodData { (periodDataObjects) -> Void in
             if let objects = periodDataObjects {
                 println(objects)
+                var tm = TimeTableView(frame: self.view.frame)
+                self.view.addSubview(tm)
             }
         }
     }

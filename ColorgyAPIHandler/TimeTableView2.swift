@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TimeTableView2: UIView {
+class TimeTableView: UIView {
 
     /*
     // Only override drawRect: if you perform custom drawing.
@@ -47,14 +47,14 @@ class TimeTableView2: UIView {
         // init!
         super.init(frame: frame)
         
-        var fakePeriods = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "A", "B", "C", "D"]
+        var periods = UserSetting.getPeriodData()
         
         // first configure session side bar view
-        var sessionSideBarView = UIView(frame: CGRectMake(0, 0, sessionSideBarWidth, courseContainerWidth * CGFloat(fakePeriods.count)))
-        for (index, period: String) in enumerate(fakePeriods) {
+        var sessionSideBarView = UIView(frame: CGRectMake(0, 0, sessionSideBarWidth, courseContainerWidth * CGFloat(periods.count)))
+        for (index, period: [String : String]) in enumerate(periods) {
             var periodLabel = UILabel(frame: CGRectMake(0, 0, sessionSideBarWidth, courseContainerWidth))
             periodLabel.textColor = UIColor.blackColor()
-            periodLabel.text = period
+            periodLabel.text = period["code"]
             periodLabel.textAlignment = NSTextAlignment.Center
             let baseOffset = courseContainerWidth / 2
             periodLabel.center.x = sessionSideBarView.bounds.midX
@@ -69,9 +69,13 @@ class TimeTableView2: UIView {
         self.sessionSideBarScrollView.contentSize = sessionSideBarView.bounds.size
         self.sessionSideBarScrollView.addSubview(sessionSideBarView)
         // also, we dont want user to move this
-        self.sessionSideBarScrollView.scrollEnabled = false
+        self.sessionSideBarScrollView.scrollEnabled = true
+        self.sessionSideBarScrollView.bounces = false
+        self.sessionSideBarScrollView.showsHorizontalScrollIndicator = false
+        self.sessionSideBarScrollView.showsVerticalScrollIndicator = false
+        self.sessionSideBarScrollView.delegate = self
         // configure
-        self.sessionSideBarScrollView.backgroundColor = UIColor.lightGrayColor()
+        self.sessionSideBarScrollView.backgroundColor = UIColor.whiteColor()
         
         // second configure header
         var headerView = UIView(frame: CGRectMake(0, 0, courseContainerWidth * 7, weekdayHeaderHeight))
@@ -92,8 +96,10 @@ class TimeTableView2: UIView {
         self.weekdayHeaderScrollView.addSubview(headerView)
         // also, we dont want user to move this
         self.weekdayHeaderScrollView.scrollEnabled = false
+        self.weekdayHeaderScrollView.showsVerticalScrollIndicator = false
+        self.weekdayHeaderScrollView.showsHorizontalScrollIndicator = false
         // configure
-        self.weekdayHeaderScrollView.backgroundColor = UIColor.lightGrayColor()
+        self.weekdayHeaderScrollView.backgroundColor = UIColor.whiteColor()
         
         // third configure timetable content
         w = self.weekdayHeaderScrollView.bounds.width
@@ -102,12 +108,18 @@ class TimeTableView2: UIView {
         w = self.weekdayHeaderScrollView.contentSize.width
         h = self.sessionSideBarScrollView.contentSize.height
         timetableContentScrollView.contentSize = CGSize(width: w, height: h)
-        timetableContentScrollView.backgroundColor = UIColor.brownColor()
+        timetableContentScrollView.backgroundColor = UIColor.whiteColor()
         timetableContentScrollView.delegate = self
         timetableContentScrollView.bounces = false
-        var ball = UIView(frame: CGRectMake(300, 300, 30, 30))
-        ball.backgroundColor = UIColor.greenColor()
-        timetableContentScrollView.addSubview(ball)
+        timetableContentScrollView.showsHorizontalScrollIndicator = false
+        timetableContentScrollView.showsVerticalScrollIndicator = false
+        // add rows to timetable scroll view
+        for index in 1...periods.count {
+            var rowView = UIView(frame: CGRectMake(0, 0, timetableContentScrollView.contentSize.width, courseContainerWidth - 2))
+            rowView.backgroundColor = UIColor(red: 250/255.0, green: 247/255.0, blue: 245/255.0, alpha: 1)
+            rowView.center.y = (courseContainerWidth / 2) + CGFloat(index - 1) * courseContainerWidth
+            timetableContentScrollView.addSubview(rowView)
+        }
         
         // arrange view position
         timetableContentScrollView.frame.origin.x = sessionSideBarWidth
@@ -120,7 +132,8 @@ class TimeTableView2: UIView {
         sessionSideBarScrollView.frame.origin.y = weekdayHeaderHeight
         self.addSubview(sessionSideBarScrollView)
         
-        // add subviews to view itself
+        // configure self scroll view
+        self.backgroundColor = UIColor.whiteColor()
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -129,11 +142,13 @@ class TimeTableView2: UIView {
 
 }
 
-extension TimeTableView2: UIScrollViewDelegate {
+extension TimeTableView: UIScrollViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if scrollView == self.timetableContentScrollView {
             self.weekdayHeaderScrollView.contentOffset.x = self.timetableContentScrollView.contentOffset.x
             self.sessionSideBarScrollView.contentOffset.y = self.timetableContentScrollView.contentOffset.y
+        } else if scrollView == self.sessionSideBarScrollView {
+            self.timetableContentScrollView.contentOffset.y = self.sessionSideBarScrollView.contentOffset.y
         }
     }
 }

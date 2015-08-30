@@ -34,6 +34,8 @@ struct UserSettingKey {
     static let isGuideShownToUser = "isGuideShownToUser"
     // local course caching data 
     static let localCourseCachingData = "courseDataFromServer"
+    // periods data
+    static let periodsData = "SchoolPeriodsData"
 }
 
 class UserSetting {
@@ -69,6 +71,42 @@ class UserSetting {
             return userRefreshToken
         }
         return nil
+    }
+    // MARK: - get / store periods data
+    class func storePeriodsData(periodDataObjects: [PeriodDataObject]?) {
+        if let periodDataObjects = periodDataObjects {
+            var dicts = [[String : String]]()
+            for object in periodDataObjects {
+                dicts.append(object.dictionary)
+            }
+            // sort the order
+            var count = 0
+            dicts.sort({ (v1, v2) -> Bool in
+                // TODO: unwrap dictionary string danger
+                let n1 = v1["order"]?.toInt()
+                let n2 = v2["order"]?.toInt()
+                println("\(n1), \(n2)")
+                if ((n1 != nil) && (n2 != nil)) {
+                    return (n1! < n2!)
+                } else {
+                    return false
+                }
+            })
+            let ud = NSUserDefaults.standardUserDefaults()
+            ud.setObject(dicts, forKey: UserSettingKey.periodsData)
+            ud.synchronize()
+        }
+    }
+    
+    
+    
+    class func getPeriodData() -> [[String : String]] {
+        let ud = NSUserDefaults.standardUserDefaults()
+        let dicts: AnyObject? = ud.objectForKey(UserSettingKey.periodsData)
+        if let dicts = dicts as? [[String : String]] {
+            return dicts
+        }
+        return [[:]]
     }
     
     // MARK: - store local course caching data
@@ -146,6 +184,8 @@ class UserSetting {
         ud.removeObjectForKey(UserSettingKey.isGuideShownToUser)
         // local caching data
         ud.removeObjectForKey(UserSettingKey.localCourseCachingData)
+        // period data
+        ud.removeObjectForKey(UserSettingKey.periodsData)
         ud.synchronize()
     }
     // 2. refresh token expired logout
@@ -174,6 +214,8 @@ class UserSetting {
         ud.removeObjectForKey(UserSettingKey.userPossibleDepartment)
         // guide keu
 //        ud.removeObjectForKey(UserSettingKey.isGuideShownToUser)
+        // period data
+        ud.removeObjectForKey(UserSettingKey.periodsData)
         ud.synchronize()
     }
 }
