@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol TimeTableViewDelegate {
+    func timeTableView(userDidTapOnCell cell: CourseCellView)
+}
+
 class TimeTableView: UIView {
 
     /*
@@ -17,6 +21,81 @@ class TimeTableView: UIView {
         // Drawing code
     }
     */
+    
+    // public API
+    var courses: [Course]? {
+        didSet {
+            deleteCourseCellView()
+            setupCourseCellView()
+        }
+    }
+    
+    var delegate: TimeTableViewDelegate!
+    
+    // setup course cell views
+    private var courseCellViewsOnTimetable: [CourseCellView]?
+    private func setupCourseCellView() {
+        // init container
+        self.courseCellViewsOnTimetable = [CourseCellView]()
+        if let courses = self.courses {
+            for course in courses {
+                // generate cell
+                var views = generateCourseCellViewWithCourse(course)
+                // add subview
+                for view in views {
+                    self.courseCellViewsOnTimetable?.append(view)
+                }
+            }
+            // after getting course cell view
+            // add these to view
+            for ccv in self.courseCellViewsOnTimetable! {
+                self.timetableContentScrollView.addSubview(ccv)
+            }
+        }
+    }
+    
+    private func generateCourseCellViewWithCourse(course: Course) -> [CourseCellView] {
+        if let days = course.days {
+            // check length
+            if course.days?.count == course.periods?.count {
+                // init array
+                var views = [CourseCellView]()
+                for (index: Int, day: Int) in enumerate(days) {
+                    // get periods and day, loop through
+                    let day = course.days![index]
+                    let period = course.periods![index]
+                    let view = courseCellViewOn(day: day, period: period)
+                    // assign content and index to this view
+                    view.courseInfo = course
+                    view.index = index
+                    // its delegate
+                    view.delegate = self
+                    views.append(view)
+                }
+                return views
+            }
+        }
+        return []
+    }
+    
+    private func courseCellViewOn(#day: Int, period: Int) -> CourseCellView {
+        // day and period all starting from 1
+        var cellV = CourseCellView(frame: CGRectMake(0, 0, courseCellWidth, courseCellWidth))
+        let x = (courseContainerWidth / 2) + CGFloat(day - 1) * courseContainerWidth
+        let y = (courseContainerWidth / 2) + CGFloat(period - 1) * courseContainerWidth
+        cellV.center = CGPoint(x: x, y: y)
+        
+        return cellV
+    }
+    
+    private func deleteCourseCellView() {
+        if self.courseCellViewsOnTimetable != nil {
+            // 有東西
+            for cellView in self.courseCellViewsOnTimetable! {
+                cellView.removeFromSuperview()
+            }
+        }
+    }
     
     // private properties
     private let screenWidth: CGFloat
@@ -150,5 +229,11 @@ extension TimeTableView: UIScrollViewDelegate {
         } else if scrollView == self.sessionSideBarScrollView {
             self.timetableContentScrollView.contentOffset.y = self.sessionSideBarScrollView.contentOffset.y
         }
+    }
+}
+
+extension TimeTableView: CourseCellViewDelegate {
+    func tapOnCourseCell(courseCellView: CourseCellView) {
+        delegate?.timeTableView(userDidTapOnCell: courseCellView)
     }
 }

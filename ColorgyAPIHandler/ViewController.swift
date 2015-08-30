@@ -119,6 +119,30 @@ class ViewController: UIViewController {
         
         var tap = UITapGestureRecognizer(target: self, action: "tap")
         self.view.addGestureRecognizer(tap)
+        
+        var tm = TimeTableView(frame: self.view.frame)
+        tm.delegate = self
+        self.view.addSubview(tm)
+        
+        
+//        ColorgyAPI.getCourseRawDataObjectWithCourseCode("1041-AC5007701", completionHandler: { (courseRawDataObject) -> Void in
+//            if let courseRawDataObject = courseRawDataObject {
+//                if let c = Course(rawData: courseRawDataObject) {
+//                    println(c)
+//                    tm.courses = [c]
+//                }
+//            }
+//        })
+        
+        ColorgyAPI.getSchoolCourseData(5, completionHandler: { (courseRawDataObjects, json) -> Void in
+            if let courseRawDataObjects = courseRawDataObjects {
+                println("Get!")
+                if let cs = Course.generateCourseArrayWithRawDataObjects(courseRawDataObjects) {
+                    tm.courses = cs
+                }
+            }
+        })
+        
     }
     
     func tap() {
@@ -169,6 +193,12 @@ class ViewController: UIViewController {
     }
 
 
+}
+
+extension ViewController: TimeTableViewDelegate {
+    func timeTableView(userDidTapOnCell cell: CourseCellView) {
+        println(cell.courseInfo.name)
+    }
 }
 
 extension ViewController: UITextFieldDelegate {

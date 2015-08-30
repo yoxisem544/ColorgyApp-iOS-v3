@@ -98,12 +98,14 @@ class UserSetting {
         }
     }
     
-    
-    
     class func getPeriodData() -> [[String : String]] {
         let ud = NSUserDefaults.standardUserDefaults()
         let dicts: AnyObject? = ud.objectForKey(UserSettingKey.periodsData)
         if let dicts = dicts as? [[String : String]] {
+            if dicts.count == 0 {
+                // prevent return a zero array
+                return [[:]]
+            }
             return dicts
         }
         return [[:]]

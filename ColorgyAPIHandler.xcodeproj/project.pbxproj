@@ -36,10 +36,11 @@
 		631CE0661B8AEDA7005FB552 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631CE0651B8AEDA7005FB552 /* StringExtension.swift */; };
 		631CE0681B8AFC53005FB552 /* LocalCachingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631CE0671B8AFC53005FB552 /* LocalCachingData.swift */; };
 		635617081B906DA200449DBD /* PopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635617071B906DA200449DBD /* PopView.swift */; };
-		6369910A1B90D50D00A8FFF4 /* TimeTableView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636991091B90D50D00A8FFF4 /* TimeTableView2.swift */; };
+		6369910A1B90D50D00A8FFF4 /* TimeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636991091B90D50D00A8FFF4 /* TimeTableView.swift */; };
 		639B09791B8DBB5C003F9D96 /* ColorgyAPITrafficControlCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639B09781B8DBB5C003F9D96 /* ColorgyAPITrafficControlCenter.swift */; };
 		639B097B1B8E01D6003F9D96 /* PeriodDataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639B097A1B8E01D6003F9D96 /* PeriodDataObject.swift */; };
 		639B097D1B8E1164003F9D96 /* NetwrokQualityDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639B097C1B8E1164003F9D96 /* NetwrokQualityDetector.swift */; };
+		63FBCBC31B9317A000B3084F /* CourseCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FBCBC21B9317A000B3084F /* CourseCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,10 +89,11 @@
 		631CE0651B8AEDA7005FB552 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		631CE0671B8AFC53005FB552 /* LocalCachingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalCachingData.swift; sourceTree = "<group>"; };
 		635617071B906DA200449DBD /* PopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopView.swift; sourceTree = "<group>"; };
-		636991091B90D50D00A8FFF4 /* TimeTableView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTableView2.swift; sourceTree = "<group>"; };
+		636991091B90D50D00A8FFF4 /* TimeTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTableView.swift; sourceTree = "<group>"; };
 		639B09781B8DBB5C003F9D96 /* ColorgyAPITrafficControlCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorgyAPITrafficControlCenter.swift; sourceTree = "<group>"; };
 		639B097A1B8E01D6003F9D96 /* PeriodDataObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodDataObject.swift; sourceTree = "<group>"; };
 		639B097C1B8E1164003F9D96 /* NetwrokQualityDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetwrokQualityDetector.swift; sourceTree = "<group>"; };
+		63FBCBC21B9317A000B3084F /* CourseCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseCellView.swift; sourceTree = "<group>"; };
 		7F2BA84BAA603EC1462E5293 /* Pods-ColorgyAPIHandler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColorgyAPIHandler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ColorgyAPIHandler/Pods-ColorgyAPIHandler.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,7 +166,8 @@
 				631182AF1B88739C008AE34E /* ColorgyLoginResult.swift */,
 				631182821B8856D1008AE34E /* ViewController.swift */,
 				635617071B906DA200449DBD /* PopView.swift */,
-				636991091B90D50D00A8FFF4 /* TimeTableView2.swift */,
+				636991091B90D50D00A8FFF4 /* TimeTableView.swift */,
+				63FBCBC21B9317A000B3084F /* CourseCellView.swift */,
 				631182871B8856D1008AE34E /* Images.xcassets */,
 				631182891B8856D1008AE34E /* LaunchScreen.xib */,
 				631182AB1B886300008AE34E /* FBSDKLoginKit.framework */,
@@ -363,6 +366,7 @@
 				631CE0681B8AFC53005FB552 /* LocalCachingData.swift in Sources */,
 				631182A31B885B6F008AE34E /* ColorgyAPI.swift in Sources */,
 				639B097B1B8E01D6003F9D96 /* PeriodDataObject.swift in Sources */,
+				63FBCBC31B9317A000B3084F /* CourseCellView.swift in Sources */,
 				631182A11B885804008AE34E /* ColorgyUser.swift in Sources */,
 				635617081B906DA200449DBD /* PopView.swift in Sources */,
 				6311C4351B89E86700F88BC9 /* CourseRawDataArray.swift in Sources */,
@@ -376,7 +380,7 @@
 				6311C4371B89FBDF00F88BC9 /* UserCourseObject.swift in Sources */,
 				631182A71B885E2F008AE34E /* ColorgyLogin.swift in Sources */,
 				6311C3F01B8889F400F88BC9 /* ColorgyAPIResults.swift in Sources */,
-				6369910A1B90D50D00A8FFF4 /* TimeTableView2.swift in Sources */,
+				6369910A1B90D50D00A8FFF4 /* TimeTableView.swift in Sources */,
 				6311C3F81B88C12300F88BC9 /* CourseDBManagedObject.swift in Sources */,
 				6311C4391B89FEFB00F88BC9 /* UserCourseObjectArray.swift in Sources */,
 				6311C3F21B88AF0D00F88BC9 /* ColorgyErrorType.swift in Sources */,
