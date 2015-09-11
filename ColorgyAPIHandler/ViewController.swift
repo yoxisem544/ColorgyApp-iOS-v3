@@ -143,6 +143,8 @@ class ViewController: UIViewController {
             }
         })
         
+        println(UIDevice.currentDevice().name)
+        
     }
     
     func tap() {

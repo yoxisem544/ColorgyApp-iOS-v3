@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "22E423849F43F536868E891C"
+               BlueprintIdentifier = "A25200C52F134BA0A27B2DBB"
                BuildableName = "libPods-ColorgyAPIHandler.a"
                BlueprintName = "Pods-ColorgyAPIHandler"
                ReferencedContainer = "container:Pods.xcodeproj">

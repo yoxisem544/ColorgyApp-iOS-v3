@@ -143,8 +143,9 @@
 			isa = PBXGroup;
 			children = (
 				631182801B8856D1008AE34E /* AppDelegate.swift */,
-				631CE0651B8AEDA7005FB552 /* StringExtension.swift */,
 				631182841B8856D1008AE34E /* Main.storyboard */,
+				6311C42F1B88DD3B00F88BC9 /* ColorgyAPIHandler.xcdatamodeld */,
+				631CE0651B8AEDA7005FB552 /* StringExtension.swift */,
 				631182A01B885804008AE34E /* ColorgyUser.swift */,
 				631182B11B887673008AE34E /* UserSettings.swift */,
 				6311C3F11B88AF0D00F88BC9 /* ColorgyErrorType.swift */,
@@ -154,7 +155,6 @@
 				639B09781B8DBB5C003F9D96 /* ColorgyAPITrafficControlCenter.swift */,
 				639B097C1B8E1164003F9D96 /* NetwrokQualityDetector.swift */,
 				631CE0671B8AFC53005FB552 /* LocalCachingData.swift */,
-				6311C42F1B88DD3B00F88BC9 /* ColorgyAPIHandler.xcdatamodeld */,
 				631182A41B885D5F008AE34E /* CourseDB.swift */,
 				6311C3F31B88B8BE00F88BC9 /* Course.swift */,
 				6311C4321B89D70500F88BC9 /* CourseRawDataObject.swift */,
@@ -168,6 +168,8 @@
 				635617071B906DA200449DBD /* PopView.swift */,
 				636991091B90D50D00A8FFF4 /* TimeTableView.swift */,
 				63FBCBC21B9317A000B3084F /* CourseCellView.swift */,
+				6311C43A1B8A01F200F88BC9 /* SwiftyJSONExtension.swift */,
+				631182AD1B886BD1008AE34E /* SwiftyJSON.swift */,
 				631182871B8856D1008AE34E /* Images.xcassets */,
 				631182891B8856D1008AE34E /* LaunchScreen.xib */,
 				631182AB1B886300008AE34E /* FBSDKLoginKit.framework */,
@@ -180,8 +182,6 @@
 		6311827E1B8856D1008AE34E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6311C43A1B8A01F200F88BC9 /* SwiftyJSONExtension.swift */,
-				631182AD1B886BD1008AE34E /* SwiftyJSON.swift */,
 				6311827F1B8856D1008AE34E /* Info.plist */,
 			);
 			name = "Supporting Files";
